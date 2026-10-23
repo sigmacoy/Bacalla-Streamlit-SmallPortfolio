@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import altair as alt
 
 # ---------------------------------------------------------
 # Page Configuration & Setup
@@ -573,8 +574,17 @@ skill_col1, skill_col2 = st.columns([1.4, 1], gap="medium")
 
 with skill_col1:
     st.subheader(f"Projects Completed per Stack (>= {min_proj_count} Projects)")
-    chart_data = filtered_skills.set_index("Skill")[["Projects Built"]]
-    st.bar_chart(chart_data, color="#18181B", height=300)
+    chart = (
+        alt.Chart(filtered_skills)
+        .mark_bar(color="#18181B", cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+        .encode(
+            x=alt.X("Skill:N", sort=None, title="Technical Stack", axis=alt.Axis(labelAngle=-25, labelLimit=200)),
+            y=alt.Y("Projects Built:Q", title="Completed Projects", axis=alt.Axis(tickMinStep=1)),
+            tooltip=["Skill", "Category", "Projects Built", "Course Units"],
+        )
+        .properties(height=300)
+    )
+    st.altair_chart(chart, use_container_width=True)
     st.caption("Quantified metric: Number of independent software projects and capstones completed per technology.")
 
 with skill_col2:
