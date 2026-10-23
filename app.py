@@ -300,10 +300,12 @@ Projects:
 # Header & Hero Section: About Mc Cauley Bacalla
 # ---------------------------------------------------------
 st.markdown('<a id="about-mc-cauley-bacalla"></a>', unsafe_allow_html=True)
+# TODO: remove hero_col1
 hero_col1, hero_col2 = st.columns([1, 2.5], gap="large")
 
 with hero_col1:
-    st.image("assets/avatar.svg", caption="", use_container_width=True)
+    # st.image("assets/avatar.svg", caption="", use_container_width=True)
+    
 
 with hero_col2:
     st.title("Mc Cauley Bacalla")
@@ -840,8 +842,8 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # Contact & Feedback Form Section
 # ---------------------------------------------------------
 st.markdown('<a id="connect-feedback"></a>', unsafe_allow_html=True)
-st.header("Connect & Feedback")
-st.write("Reach out directly via email, connect on LinkedIn, or send a message through the form below.")
+# st.header("Connect & Feedback")
+# st.write("Reach out directly via email, connect on LinkedIn, or send a message through the form below.")
 
 contact_col1, contact_col2 = st.columns([1, 1.2], gap="large")
 
