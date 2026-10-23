@@ -235,7 +235,6 @@ with st.sidebar:
         **Year Level:** 3  
         **Class Section:** F1  
         **Institution:** Cebu Institute of Technology - University  
-        **(PACUCOA Level IV accredited)**  
         **Location:** Cebu City, Philippines  
         """
     )
@@ -311,8 +310,7 @@ with hero_col2:
     st.markdown(
         """
         <div style="margin-top: -10px; margin-bottom: 15px;">
-            <span class="badge badge-primary">BS in Computer Science - Year 3</span>
-            <span class="badge">Section F1</span>
+            <span class="badge badge-primary">BS Computer Science - Year 3</span>
             <span class="badge">Cebu Institute of Technology - University</span>
             <span class="badge">Aspiring Software Engineer / AI Engineer</span>
         </div>
@@ -561,7 +559,7 @@ min_proj_count = st.slider(
 
 filtered_skills = df_skills[df_skills["Projects Built"] >= min_proj_count].sort_values(by="Projects Built", ascending=False)
 
-skill_col1, skill_col2 = st.columns([1.4, 1], gap="medium")
+skill_col1, skill_col2 = st.columns([1, 1.25], gap="large")
 
 with skill_col1:
     st.subheader(f"Projects Completed per Stack (>= {min_proj_count} Projects)")
@@ -569,7 +567,7 @@ with skill_col1:
         alt.Chart(filtered_skills)
         .mark_bar(color="#18181B", cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
         .encode(
-            x=alt.X("Skill:N", sort=None, title="Technical Stack", axis=alt.Axis(labelAngle=-25, labelLimit=200)),
+            x=alt.X("Skill:N", sort=None, title="Technical Stack", axis=alt.Axis(labelAngle=-25, labelLimit=180)),
             y=alt.Y("Projects Built:Q", title="Completed Projects", axis=alt.Axis(tickMinStep=1)),
             tooltip=["Skill", "Category", "Projects Built", "Course Units"],
         )
@@ -580,10 +578,19 @@ with skill_col1:
 
 with skill_col2:
     st.subheader("Stack Metrics Breakdown")
+    table_df = filtered_skills[["Skill", "Category", "Projects Built", "Course Units"]].rename(
+        columns={"Projects Built": "Projects", "Course Units": "Course Units"}
+    )
     st.dataframe(
-        filtered_skills[["Skill", "Category", "Projects Built", "Course Units"]],
+        table_df,
         use_container_width=True,
         hide_index=True,
+        column_config={
+            "Skill": st.column_config.TextColumn("Skill", width="medium"),
+            "Category": st.column_config.TextColumn("Category", width="medium"),
+            "Projects": st.column_config.NumberColumn("Projects", width="small", format="%d"),
+            "Course Units": st.column_config.NumberColumn("Course Units", width="small", format="%d"),
+        },
     )
     st.write(f"Displaying **{len(filtered_skills)}** of **{len(df_skills)}** technical domains.")
 
@@ -594,7 +601,7 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # ---------------------------------------------------------
 st.markdown('<a id="projects-showcase"></a>', unsafe_allow_html=True)
 st.header("Projects Showcase")
-st.write("Explore all 8 software projects across theory, browser extensions, mobile, enterprise, and desktop applications.")
+st.write("Explore all 9 software projects across theory, browser extensions, mobile, enterprise, and desktop applications.")
 
 f_col1, f_col2, f_col3 = st.columns([1.5, 1.2, 1], gap="small")
 
@@ -678,7 +685,7 @@ else:
                     <p style="color: #71717A; font-size: 0.85rem; margin-top: 2px; margin-bottom: 10px;">
                         <strong>Role:</strong> {p['role']} • <em>{p['category']}</em>
                     </p>
-                    <p style="font-size: 0.95rem; line-height: 1.5; color: #27272A; margin-bottom: 12px;">
+                    <p style="font-size: 0.95rem; line-height: 1.5; color: #27272A; margin-bottom: 12px; text-align: justify; text-justify: inter-word;">
                         {p['description']}
                     </p>
                     <p style="font-size: 0.8rem; color: #71717A; margin-bottom: 4px;">
@@ -730,7 +737,7 @@ else:
                         <p style="color: #71717A; font-size: 0.85rem; margin-top: 2px; margin-bottom: 10px;">
                             <strong>Role:</strong> {p['role']} • <em>{p['category']}</em>
                         </p>
-                        <p style="font-size: 0.95rem; line-height: 1.5; color: #27272A; margin-bottom: 12px;">
+                        <p style="font-size: 0.95rem; line-height: 1.5; color: #27272A; margin-bottom: 12px; text-align: justify; text-justify: inter-word;">
                             {p['description']}
                         </p>
                         <p style="font-size: 0.8rem; color: #71717A; margin-bottom: 4px;">
@@ -793,19 +800,29 @@ with contact_col1:
         - **GitHub Profile:** [github.com/sigmacoy](https://github.com/sigmacoy)
         """
     )
-    st.info("Actively open for software engineering discussions, academic projects, and professional inquiries.")
+    st.caption("Feel free to reach out directly through any of the channels above.")
 
 with contact_col2:
     st.subheader("Send Feedback / Inquiry")
     with st.form(key="portfolio_feedback_form", clear_on_submit=True):
-        sender_name = st.text_input("Your Full Name", placeholder="e.g. Alex Morgan")
-        sender_email = st.text_input("Your Email Address", placeholder="e.g. alex@example.com")
-        category = st.selectbox(
-            "Topic / Category",
-            options=["General Inquiry", "Project Discussion", "Software / AI Collaboration", "Academic Discussion"],
-        )
-        rating = st.slider("Portfolio Rating", min_value=1, max_value=5, value=5, help="1 = Needs Revision, 5 = Excellent")
-        message = st.text_area("Your Message or Comments", placeholder="Write your message or project inquiry here...")
+        row1_col1, row1_col2 = st.columns(2)
+        with row1_col1:
+            sender_name = st.text_input("Your Name", placeholder="e.g. Alex Morgan")
+        with row1_col2:
+            sender_email = st.text_input("Your Email", placeholder="e.g. alex@example.com")
+        
+        row2_col1, row2_col2 = st.columns([1.1, 1])
+        with row2_col1:
+            category = st.selectbox(
+                "Topic",
+                options=["General Feedback", "Project Discussion", "Software / AI Collaboration", "Academic Discussion", "Other / None"],
+                index=0,
+            )
+        with row2_col2:
+            rating_choice = st.segmented_control("Rating", options=[1, 2, 3, 4, 5], default=5)
+            rating = rating_choice if rating_choice is not None else 5
+        
+        message = st.text_area("Your Message or Comments", placeholder="Write your message or project inquiry here...", height=90)
         
         submitted = st.form_submit_button("Submit Message", use_container_width=True)
         
