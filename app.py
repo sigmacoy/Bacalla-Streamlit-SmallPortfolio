@@ -304,10 +304,11 @@ st.markdown('<a id="about-mc-cauley-bacalla"></a>', unsafe_allow_html=True)
 st.title("Mc Cauley Bacalla")
 st.markdown(
     """
-    <div style="margin-top: -10px; margin-bottom: 15px;">
+    <div style="margin-top: 0px; margin-bottom: 15px;">
         <span class="badge badge-primary">BS Computer Science - Year 3</span>
         <span class="badge">Cebu Institute of Technology - University</span>
         <span class="badge">Aspiring Software Engineer / AI Engineer</span>
+        <span class="badge">Officer - Google Developer Groups on Campus</span>
     </div>
     """,
     unsafe_allow_html=True,
@@ -316,7 +317,7 @@ st.write(
     """
     Computer Science student at Cebu Institute of Technology - University (PACUCOA Level IV accredited), 
     focused on pursuing a career as a **Software Engineer** at a fintech company or **AI Engineer**. Self-learner who enjoys 
-    solving problems through repetitions and pattern recognition.
+    solving problems through repetitions and pattern recognition. Officer of a school organization called **Google Developer Groups on Campus** in the Technology Department.
     """
 )
 
@@ -324,11 +325,11 @@ m_col1, m_col2, m_col3, m_col4 = st.columns(4)
 with m_col1:
     st.metric(label="Featured Projects", value="9", delta="Documented")
 with m_col2:
-    st.metric(label="Year Level", value="3rd Year", delta="CIT-U")
+    st.metric(label="Year Level", value="3rd Year", delta="Regular Student")
 with m_col3:
     st.metric(label="Class Section", value="F1", delta="BSCS")
 with m_col4:
-    st.metric(label="Theory Focus", value="CS313", delta="Independent from AI")
+    st.metric(label="Theory Focus", value="CS313", delta="Studying hard!")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
