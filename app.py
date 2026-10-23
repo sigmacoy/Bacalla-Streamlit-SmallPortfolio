@@ -322,7 +322,7 @@ with hero_col2:
     st.write(
         """
         Computer Science student at Cebu Institute of Technology - University (PACUCOA Level IV accredited), 
-        focused on pursuing a career as a **Software Engineer** or **AI Engineer**. Self-learner who enjoys 
+        focused on pursuing a career as a **Software Engineer** at a fintech company or **AI Engineer**. Self-learner who enjoys 
         solving problems through repetitions and pattern recognition.
         """
     )

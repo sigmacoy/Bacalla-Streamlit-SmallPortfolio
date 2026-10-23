@@ -1,4 +1,4 @@
-# Mc Cauley Bacalla - Streamlit Portfolio
+# Bacalla - Streamlit Portfolio
 
 A minimalist personal autobiography and project portfolio built with Streamlit, developed by **Mc Cauley Bacalla**, a 3rd-year Computer Science student at Cebu Institute of Technology - University (PACUCOA Level IV accredited).
 
