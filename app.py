@@ -111,7 +111,7 @@ projects_data = [
         "role": "Lead Developer, Solo Developer",
         "role_category": "Solo Developer",
         "tools": ["Antigravity", "TypeScript", "JavaScript", "Google Identity Services API", "Google Token Verification API", "Vercel Analytics API", "Vercel Serverless"],
-        "description": "Closed private website useful for verifying answers for CS313 Automata Theory using correct math formulas and algorithms. Independent from AI. Closed source code and restricted to private closed friends only.",
+        "description": "A vercel website useful for verifying answers for CS313 Automata Theory using correct math formulas and algorithms. Independent from AI. Closed source code and restricted to private closed friends only.",
         "outcome": "Deterministic mathematical verification engine for automata transitions, context-free grammars, and formal proofs without probabilistic output.",
         "link": "https://i-will-pass-automata-theory.vercel.app/",
         "access_note": "Closed source code / Private friends-only access",
@@ -227,7 +227,7 @@ projects_data = [
 # Sidebar Component: Profile & Explicit Fast Navigation
 # ---------------------------------------------------------
 with st.sidebar:
-    st.image("assets/avatar.svg", use_container_width=True, caption="Photo Stand-In")
+    st.image("assets/avatar.svg", use_container_width=True, caption="")
     
     st.markdown("### Student Profile")
     st.markdown(
@@ -312,7 +312,7 @@ st.markdown('<a id="about-mc-cauley-bacalla"></a>', unsafe_allow_html=True)
 hero_col1, hero_col2 = st.columns([1, 2.5], gap="large")
 
 with hero_col1:
-    st.image("assets/avatar.svg", caption="Photo Stand-In", use_container_width=True)
+    st.image("assets/avatar.svg", caption="", use_container_width=True)
 
 with hero_col2:
     st.title("Mc Cauley Bacalla")
