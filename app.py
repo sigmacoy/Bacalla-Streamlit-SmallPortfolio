@@ -62,9 +62,9 @@ st.markdown(
         border: 1px solid #18181B;
     }
     
-    .divider {
-        margin: 2rem 0;
-        border-bottom: 1px solid #E4E4E7;
+    /* Minimize main container bottom padding */
+    .block-container {
+        padding-bottom: 0.5rem !important;
     }
     </style>
     """,
@@ -259,12 +259,6 @@ with st.sidebar:
         options=["Standard 2-Column Grid", "Compact Directory View"],
         index=0,
         help="Adjust the display density of the project cards.",
-    )
-    
-    show_raw_specs = st.checkbox(
-        "Show Architectural Highlights",
-        value=True,
-        help="Display implementation notes below each project.",
     )
     
     st.markdown("---")
@@ -593,24 +587,6 @@ with skill_col2:
     )
     st.write(f"Displaying **{len(filtered_skills)}** of **{len(df_skills)}** technical domains.")
 
-with st.expander("Deterministic Transition Logic Excerpt (CS313 Automata Verification)"):
-    st.write("State transition check function for deterministic finite automata (DFA):")
-    st.code(
-        """
-def verify_dfa_transition(states, alphabet, transition_table, start_state, accept_states, input_string):
-    current_state = start_state
-    for symbol in input_string:
-        if symbol not in alphabet:
-            return False, f"Invalid symbol '{symbol}' not in alphabet."
-        current_state = transition_table.get((current_state, symbol))
-        if current_state is None:
-            return False, "Trap / dead state reached."
-    is_accepted = current_state in accept_states
-    return is_accepted, f"Ended at state {current_state} (Accepted: {is_accepted})"
-        """,
-        language="python",
-    )
-
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 # ---------------------------------------------------------
@@ -741,10 +717,6 @@ else:
                     use_container_width=True,
                 )
             
-            if show_raw_specs:
-                with st.expander(f"Architectural Highlights ({p['title']})"):
-                    st.write(f"**Implementation Notes:** {p['highlights']}")
-            
             st.markdown("<br>", unsafe_allow_html=True)
             
         # Right card
@@ -796,10 +768,6 @@ else:
                         url=p["link"],
                         use_container_width=True,
                     )
-                
-                if show_raw_specs:
-                    with st.expander(f"Architectural Highlights ({p['title']})"):
-                        st.write(f"**Implementation Notes:** {p['highlights']}")
                 
                 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -871,8 +839,8 @@ with st.expander(f"Session Feedback Log ({len(st.session_state['feedback_list'])
 # ---------------------------------------------------------
 st.markdown(
     """
-    <div style="border-top: 1px solid #E4E4E7; margin-top: 1.5rem; padding-top: 0.75rem; padding-bottom: 0.5rem; text-align: center;">
-        <span style="color: #71717A; font-size: 0.8rem;">
+    <div style="border-top: 1px solid #E4E4E7; margin-top: 0.75rem; padding-top: 0.4rem; padding-bottom: 0.1rem; text-align: center;">
+        <span style="color: #71717A; font-size: 0.75rem;">
             Mc Cauley Bacalla • BS in Computer Science (Year 3) • Section F1 • Cebu Institute of Technology - University
         </span>
     </div>
