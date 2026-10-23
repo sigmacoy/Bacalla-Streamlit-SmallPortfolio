@@ -85,9 +85,6 @@ if "feedback_list" not in st.session_state:
         }
     ]
 
-if "bookmarked_projects" not in st.session_state:
-    st.session_state["bookmarked_projects"] = set(["I Will Pass Automata Theory"])
-
 # ---------------------------------------------------------
 # Data Definitions: Skills & Projects
 # ---------------------------------------------------------
@@ -722,22 +719,27 @@ else:
             )
             
             st.write(f"**Outcome:** {p['outcome']}")
-            b_col1, b_col2 = st.columns([1, 1])
-            with b_col1:
+            if p["title"] == "I Will Pass Automata Theory":
+                b_col1, b_col2 = st.columns([1, 1])
+                with b_col1:
+                    st.link_button(
+                        label="Launch Vercel Site",
+                        url=p["link"],
+                        use_container_width=True,
+                    )
+                with b_col2:
+                    st.button(
+                        label="Closed Source",
+                        disabled=True,
+                        use_container_width=True,
+                        help="This project repository is closed source and restricted to private closed friends only.",
+                    )
+            else:
                 st.link_button(
-                    label="Launch / View",
+                    label="GitHub Link",
                     url=p["link"],
                     use_container_width=True,
                 )
-            with b_col2:
-                is_fav = p["title"] in st.session_state["bookmarked_projects"]
-                star_label = "[Bookmarked]" if is_fav else "Bookmark"
-                if st.button(star_label, key=f"bm_{p['id']}", use_container_width=True):
-                    if is_fav:
-                        st.session_state["bookmarked_projects"].remove(p["title"])
-                    else:
-                        st.session_state["bookmarked_projects"].add(p["title"])
-                    st.rerun()
             
             if show_raw_specs:
                 with st.expander(f"Architectural Highlights ({p['title']})"):
@@ -773,22 +775,27 @@ else:
                 )
                 
                 st.write(f"**Outcome:** {p['outcome']}")
-                b_col1, b_col2 = st.columns([1, 1])
-                with b_col1:
+                if p["title"] == "I Will Pass Automata Theory":
+                    b_col1, b_col2 = st.columns([1, 1])
+                    with b_col1:
+                        st.link_button(
+                            label="Launch Vercel Site",
+                            url=p["link"],
+                            use_container_width=True,
+                        )
+                    with b_col2:
+                        st.button(
+                            label="Closed Source",
+                            disabled=True,
+                            use_container_width=True,
+                            help="This project repository is closed source and restricted to private closed friends only.",
+                        )
+                else:
                     st.link_button(
-                        label="Launch / View",
+                        label="GitHub Link",
                         url=p["link"],
                         use_container_width=True,
                     )
-                with b_col2:
-                    is_fav = p["title"] in st.session_state["bookmarked_projects"]
-                    star_label = "[Bookmarked]" if is_fav else "Bookmark"
-                    if st.button(star_label, key=f"bm_{p['id']}", use_container_width=True):
-                        if is_fav:
-                            st.session_state["bookmarked_projects"].remove(p["title"])
-                        else:
-                            st.session_state["bookmarked_projects"].add(p["title"])
-                        st.rerun()
                 
                 if show_raw_specs:
                     with st.expander(f"Architectural Highlights ({p['title']})"):
@@ -822,13 +829,7 @@ with contact_col1:
         - **GitHub Profile:** [github.com/sigmacoy](https://github.com/sigmacoy)
         """
     )
-    st.markdown("---")
-    st.markdown("##### Bookmarked Projects This Session:")
-    if st.session_state["bookmarked_projects"]:
-        for bm in sorted(list(st.session_state["bookmarked_projects"])):
-            st.markdown(f"- **{bm}**")
-    else:
-        st.caption("No projects currently bookmarked. Click 'Bookmark' on any project card above.")
+    st.info("Actively open for software engineering discussions, academic projects, and professional inquiries.")
 
 with contact_col2:
     st.subheader("Send Feedback / Inquiry")
