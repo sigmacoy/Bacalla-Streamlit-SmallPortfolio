@@ -737,9 +737,13 @@ with st.expander(f"Session Feedback Log ({len(st.session_state['feedback_list'])
 # ---------------------------------------------------------
 # Footer Section
 # ---------------------------------------------------------
-st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-f_left, f_right = st.columns([2, 1])
-with f_left:
-    st.caption("Mc Cauley Bacalla • BS in Computer Science (Year 3) • Section F1 • Cebu Institute of Technology - University")
-with f_right:
-    st.caption("Built with Streamlit • Minimalist Architecture")
+st.markdown(
+    """
+    <div style="border-top: 1px solid #E4E4E7; margin-top: 1.5rem; padding-top: 0.75rem; padding-bottom: 0.5rem; text-align: center;">
+        <span style="color: #71717A; font-size: 0.8rem;">
+            Mc Cauley Bacalla • BS in Computer Science (Year 3) • Section F1 • Cebu Institute of Technology - University
+        </span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
