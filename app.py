@@ -586,10 +586,10 @@ with skill_col2:
         use_container_width=True,
         hide_index=True,
         column_config={
-            "Skill": st.column_config.TextColumn("Skill", width="medium"),
-            "Category": st.column_config.TextColumn("Category", width="medium"),
-            "Projects": st.column_config.NumberColumn("Projects", width="small", format="%d"),
-            "Course Units": st.column_config.NumberColumn("Course Units", width="small", format="%d"),
+            "Skill": st.column_config.TextColumn("Skill", width=190),
+            "Category": st.column_config.TextColumn("Category", width=160),
+            "Projects": st.column_config.NumberColumn("Projects", width=85, format="%d"),
+            "Course Units": st.column_config.NumberColumn("Course Units", width=105, format="%d"),
         },
     )
     st.write(f"Displaying **{len(filtered_skills)}** of **{len(df_skills)}** technical domains.")
