@@ -47,6 +47,13 @@ This application serves as an interactive showcase of academic coursework, found
    - Software-based smart energy monitoring system utilizing a simulated smart-breaker environment, created for ES038 Technopreneurship.
    - *Tools:* Python, JavaScript, Software Simulation.
 
+### Additional Side Projects & Utilities (Under "More" Tab)
+- **Anki Last Ease Highlight Add-on:** Highlights the answer button pressed last time during card reviews.
+- **FuzzyLogic-Vehicle-Refuel-Recommender:** Python-based Mamdani fuzzy inference system for CS345 Intelligent Systems 1.
+- **Messenger Chat Deletor:** Chrome extension for bulk-deleting chat messages and archiving stories with automatic safety filters.
+- **TreeViz-CLI:** Terminal-based interactive visualization tool for exploring tree data structures from the command line.
+- **SharePoint Video Skip Arrow:** Browser extension mapping arrow keys to native SharePoint 10-second video seeking.
+
 ---
 
 ## Installation & Setup

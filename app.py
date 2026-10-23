@@ -344,11 +344,12 @@ st.markdown('<a id="autobiography"></a>', unsafe_allow_html=True)
 st.header("Autobiography")
 st.write("Background, academic education, focus areas, and milestones.")
 
-tab_bg, tab_edu, tab_interest, tab_milestones = st.tabs([
+tab_bg, tab_edu, tab_interest, tab_milestones, tab_more = st.tabs([
     "Background & Philosophy",
     "Academic Education",
     "Focus Areas & Goals",
     "Key Milestones",
+    "More",
 ])
 
 with tab_bg:
@@ -533,6 +534,61 @@ with tab_milestones:
         {"Year": "2024 Q4", "Milestone": "Automata Verification System", "Detail": "Engineered 'I Will Pass Automata Theory' using TypeScript, Google Auth APIs, and Vercel Serverless."},
     ]
     st.dataframe(pd.DataFrame(milestones_data), use_container_width=True, hide_index=True)
+
+with tab_more:
+    st.subheader("Side Projects & Developer Tools")
+    st.write("Additional independent tools, browser extensions, terminal utilities, and academic prototypes:")
+    
+    more_projects = [
+        {
+            "title": "Anki Last Ease Highlight Add-on",
+            "category": "Productivity & Learning Add-on",
+            "desc": "Anki add-on that highlights the answer button you pressed last time for each card during review.",
+            "link": "https://github.com/sigmacoy/anki-last-ease-highlight-addon",
+        },
+        {
+            "title": "FuzzyLogic-Vehicle-Refuel-Recommender",
+            "category": "Intelligent Systems Prototype (CS345)",
+            "desc": "A Python-based fuzzy logic inference system built from scratch for CS345 Intelligent Systems 1. It evaluates vehicle fuel levels and distance to the next gas station to calculate optimal refuel urgency using Mamdani.",
+            "link": "https://github.com/sigmacoy/FuzzyLogic-Vehicle-Refuel-Recommender",
+        },
+        {
+            "title": "Messenger Chat Deletor",
+            "category": "Browser Extension & Privacy Automation",
+            "desc": "A Chrome extension that bulk-deletes chat messages and deletes archive stories. Marketplace conversations and video stories are automatically skipped.",
+            "link": "https://github.com/sigmacoy/messenger-peace-of-mind",
+        },
+        {
+            "title": "TreeViz-CLI",
+            "category": "Terminal Data Structures Utility",
+            "desc": "A terminal-based interactive visualization tool for learning and exploring tree data structures - no GUI, runs entirely in the command line.",
+            "link": "https://github.com/sigmacoy/Terminal-Tree-Viz",
+        },
+        {
+            "title": "SharePoint Video Skip Arrow",
+            "category": "Browser Extension & Workflow",
+            "desc": "Nobody wants to stretch their fingers for cumbersome default shortcuts just to seek through a video. This lightweight browser extension maps the Left Arrow (<-) and Right Arrow (->) keys directly to SharePoint's native 10-second skip buttons, alongside the Spacebar for quick play and pause, working exclusively on *.sharepoint.com sites.",
+            "link": "https://github.com/sigmacoy/sharepoint-video-skip-arrow",
+        },
+    ]
+    
+    for mp in more_projects:
+        st.markdown(
+            f"""
+            <div class="project-card">
+                <h4 style="margin: 0; padding-bottom: 2px;">{mp['title']}</h4>
+                <p style="color: #71717A; font-size: 0.8rem; margin-top: 2px; margin-bottom: 8px;">
+                    <em>{mp['category']}</em>
+                </p>
+                <p style="font-size: 0.9rem; line-height: 1.5; color: #27272A; margin-bottom: 12px; text-align: justify; text-justify: inter-word;">
+                    {mp['desc']}
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.link_button("GitHub Link", url=mp["link"], use_container_width=False)
+        st.markdown("<br>", unsafe_allow_html=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
