@@ -184,7 +184,7 @@ projects_data = [
         "id": "p7",
         "title": "+inHealth",
         "category": "Desktop Apps",
-        "role": "Developer (5-Man Team: Backend, Frontend, DB Operations, UI Behavior, Class Diagrams)",
+        "role": "Developer (5-Man Team: Backend, Frontend, Database, UI/UX)",
         "role_category": "Team Developer",
         "tools": ["Java", "Java Swing", "OOP Design Patterns", "Multithreading", "JDBC", "MySQL (XAMPP)", "Nutritional API"],
         "description": "Our capstone project for OOP 2: +inHealth is a health tracking application designed to help users monitor, understand, and improve their overall well-being by tracking both their daily meal consumption and physical activities while encouraging desk workers to stay active. This project required the strict implementation of Java Swing, OOP design patterns, multithreading, and SQL database management using JDBC with XAMPP.",
@@ -786,10 +786,6 @@ with contact_col1:
     st.subheader("Contact Information")
     st.markdown(
         """
-        - **Name:** Mc Cauley Bacalla
-        - **Institution:** Cebu Institute of Technology - University
-        - **Accreditation:** PACUCOA Level IV accredited
-        - **Program & Section:** BS in Computer Science (Year 3) • Section F1
         - **Institutional Email:** [mccauley.bacalla@cit.edu](mailto:mccauley.bacalla@cit.edu)
         - **Personal Email:** [macoybacalla9@gmail.com](mailto:macoybacalla9@gmail.com)
         - **Direct Message:** [Send Email via Gmail Web](https://mail.google.com/mail/?view=cm&fs=1&to=macoybacalla9@gmail.com&su=Hello&body=Hi%20there)
