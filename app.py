@@ -215,7 +215,7 @@ projects_data = [
         "tools": ["Python", "JavaScript", "Software Simulation", "Energy Modeling", "Full-Stack"],
         "description": "A software-based energy monitoring system created for ES038 Technopreneurship by a 10-person collaborative team. Uses a simulated smart-breaker environment, so no physical hardware is needed to track, monitor, and optimize power consumption.",
         "outcome": "Comprehensive smart energy platform allowing households and facilities to audit simulated electrical load, detect peak consumption, and test automated breaker policies safely.",
-        "link": "https://github.com/sigmacoy",
+        "link": "No repository yet",
         "access_note": "Technopreneurship Startup Capstone (10-Person Team)",
         "highlights": "Simulated circuit telemetry, smart-breaker event dispatching, software-only hardware emulation, and cross-functional team coordination.",
     },
@@ -294,7 +294,7 @@ Projects:
         use_container_width=True,
     )
     
-    st.caption("Minimalist Portfolio")
+    st.caption("My Minimalist Portfolio")
 
 # ---------------------------------------------------------
 # Header & Hero Section: About Mc Cauley Bacalla
@@ -863,9 +863,9 @@ with contact_col2:
     with st.form(key="portfolio_feedback_form", clear_on_submit=True):
         row1_col1, row1_col2 = st.columns(2)
         with row1_col1:
-            sender_name = st.text_input("Your Name", placeholder="e.g. Alex Morgan")
+            sender_name = st.text_input("Your Name", placeholder="e.g. Jun Albert S. Pardillo")
         with row1_col2:
-            sender_email = st.text_input("Your Email", placeholder="e.g. alex@example.com")
+            sender_email = st.text_input("Your Email", placeholder="e.g. junpardillo@example.com")
         
         row2_col1, row2_col2 = st.columns([1.1, 1])
         with row2_col1:
@@ -908,7 +908,7 @@ with st.expander(f"Session Feedback Log ({len(st.session_state['feedback_list'])
 # ---------------------------------------------------------
 st.markdown(
     """
-    <div style="border-top: 1px solid #E4E4E7; margin-top: 0.75rem; padding-top: 0.4rem; padding-bottom: 0.1rem; text-align: center;">
+    <div style="border-top: 1px solid #E4E4E7; margin-top: 5rem; padding-top: 0.4rem; padding-bottom: 0.1rem; text-align: center;">
         <span style="color: #71717A; font-size: 0.75rem;">
             Mc Cauley Bacalla • BS in Computer Science (Year 3) • Section F1 • Cebu Institute of Technology - University
         </span>
