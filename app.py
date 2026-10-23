@@ -300,42 +300,35 @@ Projects:
 # Header & Hero Section: About Mc Cauley Bacalla
 # ---------------------------------------------------------
 st.markdown('<a id="about-mc-cauley-bacalla"></a>', unsafe_allow_html=True)
-# TODO: remove hero_col1
-hero_col1, hero_col2 = st.columns([1, 2.5], gap="large")
 
-with hero_col1:
-    # st.image("assets/avatar.svg", caption="", use_container_width=True)
-    
+st.title("Mc Cauley Bacalla")
+st.markdown(
+    """
+    <div style="margin-top: -10px; margin-bottom: 15px;">
+        <span class="badge badge-primary">BS Computer Science - Year 3</span>
+        <span class="badge">Cebu Institute of Technology - University</span>
+        <span class="badge">Aspiring Software Engineer / AI Engineer</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+st.write(
+    """
+    Computer Science student at Cebu Institute of Technology - University (PACUCOA Level IV accredited), 
+    focused on pursuing a career as a **Software Engineer** at a fintech company or **AI Engineer**. Self-learner who enjoys 
+    solving problems through repetitions and pattern recognition.
+    """
+)
 
-with hero_col2:
-    st.title("Mc Cauley Bacalla")
-    st.markdown(
-        """
-        <div style="margin-top: -10px; margin-bottom: 15px;">
-            <span class="badge badge-primary">BS Computer Science - Year 3</span>
-            <span class="badge">Cebu Institute of Technology - University</span>
-            <span class="badge">Aspiring Software Engineer / AI Engineer</span>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.write(
-        """
-        Computer Science student at Cebu Institute of Technology - University (PACUCOA Level IV accredited), 
-        focused on pursuing a career as a **Software Engineer** at a fintech company or **AI Engineer**. Self-learner who enjoys 
-        solving problems through repetitions and pattern recognition.
-        """
-    )
-
-    m_col1, m_col2, m_col3, m_col4 = st.columns(4)
-    with m_col1:
-        st.metric(label="Featured Projects", value="9", delta="Documented")
-    with m_col2:
-        st.metric(label="Year Level", value="3rd Year", delta="CIT-U")
-    with m_col3:
-        st.metric(label="Class Section", value="F1", delta="BSCS")
-    with m_col4:
-        st.metric(label="Theory Focus", value="CS313", delta="Independent from AI")
+m_col1, m_col2, m_col3, m_col4 = st.columns(4)
+with m_col1:
+    st.metric(label="Featured Projects", value="9", delta="Documented")
+with m_col2:
+    st.metric(label="Year Level", value="3rd Year", delta="CIT-U")
+with m_col3:
+    st.metric(label="Class Section", value="F1", delta="BSCS")
+with m_col4:
+    st.metric(label="Theory Focus", value="CS313", delta="Independent from AI")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
@@ -774,7 +767,16 @@ else:
                         disabled=True,
                         use_container_width=True,
                         help="This project repository is closed source and restricted to private closed friends only.",
+                        key=f"btn_closed_{p['id']}_{i}",
                     )
+            elif p["title"] == "WattWise":
+                st.button(
+                    label="No Repository Yet",
+                    disabled=True,
+                    use_container_width=True,
+                    help="This project repository is not publicly available yet.",
+                    key=f"btn_norepo_{p['id']}_{i}",
+                )
             else:
                 st.link_button(
                     label="GitHub Link",
@@ -826,7 +828,16 @@ else:
                             disabled=True,
                             use_container_width=True,
                             help="This project repository is closed source and restricted to private closed friends only.",
+                            key=f"btn_closed_r_{p['id']}_{i}",
                         )
+                elif p["title"] == "WattWise":
+                    st.button(
+                        label="No Repository Yet",
+                        disabled=True,
+                        use_container_width=True,
+                        help="This project repository is not publicly available yet.",
+                        key=f"btn_norepo_r_{p['id']}_{i}",
+                    )
                 else:
                     st.link_button(
                         label="GitHub Link",
