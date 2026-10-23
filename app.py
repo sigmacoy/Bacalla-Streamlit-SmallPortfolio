@@ -184,16 +184,16 @@ projects_data = [
     },
     {
         "id": "p7",
-        "title": "tinHealth",
+        "title": "+inHealth",
         "category": "Desktop Apps",
         "role": "Developer (5-Man Team: Backend, Frontend, DB Operations, UI Behavior, Class Diagrams)",
         "role_category": "Team Developer",
-        "tools": ["Java", "JavaFX", "Nutritional API", "Database Operations"],
-        "description": "+inHealth is a Java/JavaFX health tracking application that encourages users to do physical activities and maintain ergonomic habits while at their desktops.",
-        "outcome": "Modular desktop application integrating nutritional APIs and structured activity scheduling.",
+        "tools": ["Java", "Java Swing", "OOP Design Patterns", "Multithreading", "JDBC", "MySQL (XAMPP)", "Nutritional API"],
+        "description": "Our capstone project for OOP 2: +inHealth is a health tracking application designed to help users monitor, understand, and improve their overall well-being by tracking both their daily meal consumption and physical activities while encouraging desk workers to stay active. This project required the strict implementation of Java Swing, OOP design patterns, multithreading, and SQL database management using JDBC with XAMPP.",
+        "outcome": "Modular multi-tier desktop health tracking system combining multithreaded reminder routines, nutritional database logging via JDBC, and active desktop exercise prompts.",
         "link": "https://github.com/Gianne818/tinHealth",
-        "access_note": "Open Source Repository",
-        "highlights": "Clean MVC architecture, class diagrams implementation, external API response parsing, and JavaFX layout binding.",
+        "access_note": "Academic Capstone (5-Man Team)",
+        "highlights": "Java Swing architecture, strict OOP design patterns, background multithreaded timers, and JDBC relational database operations on XAMPP MySQL.",
     },
     {
         "id": "p8",
@@ -201,12 +201,25 @@ projects_data = [
         "category": "Desktop Apps",
         "role": "Front-end Developer",
         "role_category": "Team Developer",
-        "tools": ["Java", "Java Swing", "Process Execution"],
-        "description": "CodeChum++ is a lightweight, standalone code-judging environment built with Java Swing. It provides an efficient workspace to write, run, and evaluate code instantly without an internet connection.",
-        "outcome": "Zero-dependency offline code evaluator enabling reliable laboratory assessments in low-connectivity settings.",
+        "tools": ["Java", "Java Swing", "Process Execution", "LeetCode-Style UI"],
+        "description": "Our capstone project for OOP 1: CodeChum++ is an offline code judging system designed with a LeetCode-style interface, built using Java Swing. It provides an efficient workspace to write, run, and evaluate code instantly without an internet connection.",
+        "outcome": "Zero-dependency offline code evaluation environment providing instant local test-case verification and split-pane code editor interface.",
         "link": "https://github.com/leetawn/CodeChum-plus-plus",
-        "access_note": "Open Source Repository",
-        "highlights": "Custom Swing code rendering, local process spawning via ProcessBuilder, and automated test-case evaluation.",
+        "access_note": "Academic Capstone (Team Developer)",
+        "highlights": "Custom Java Swing layout with LeetCode-style pane organization, local process compilation and execution, and test-case comparison runner.",
+    },
+    {
+        "id": "p9",
+        "title": "WattWise",
+        "category": "Enterprise & Simulation",
+        "role": "Collaborative Developer (10-Person Team)",
+        "role_category": "Team Developer",
+        "tools": ["Python", "JavaScript", "Software Simulation", "Energy Modeling", "Full-Stack"],
+        "description": "A software-based energy monitoring system created for ES038 Technopreneurship by a 10-person collaborative team. Uses a simulated smart-breaker environment, so no physical hardware is needed to track, monitor, and optimize power consumption.",
+        "outcome": "Comprehensive smart energy platform allowing households and facilities to audit simulated electrical load, detect peak consumption, and test automated breaker policies safely.",
+        "link": "https://github.com/sigmacoy",
+        "access_note": "Technopreneurship Startup Capstone (10-Person Team)",
+        "highlights": "Simulated circuit telemetry, smart-breaker event dispatching, software-only hardware emulation, and cross-functional team coordination.",
     },
 ]
 
@@ -267,9 +280,9 @@ Email: mccauley.bacalla@cit.edu
 LinkedIn: https://www.linkedin.com/in/mc-cauley-bacalla-a4274a363/
 
 Core Skills:
-- Languages & Stacks: Python, TypeScript, JavaScript, Java, Kotlin, Swift, PHP, HTML/CSS
+- Languages & Stacks: Python, TypeScript, JavaScript, Java, Kotlin, Swift, PHP, C, C++, HTML/CSS
 - Databases: MySQL, PostgreSQL
-- Coursework: Automata Theory (CS313), Information Management 2, Applied AI & Quantitative Methods
+- Coursework: Automata Theory (CS313), Information Management 2, Applied AI & Quantitative Methods, Design & Analysis of Algorithms
 
 Projects:
 1. I Will Pass Automata Theory - Closed private verification tool for CS313 Automata Theory
@@ -278,8 +291,9 @@ Projects:
 4. Clinic Inventory System - PHP/MySQL pharmacy inventory with FEFO batch deduction
 5. YouTube Audio Downloader - Flask and yt-dlp/ffmpeg local audio extraction tool
 6. Pomodoro Timer - Minimalist SwiftUI macOS menu bar timer
-7. tinHealth - Java/JavaFX desktop health and ergonomic habit tracker
-8. CodeChum++ - Standalone offline Java code judge environment
+7. +inHealth - Java Swing desktop health and physical activity tracking suite
+8. CodeChum++ - Standalone offline Java Swing code judge environment
+9. WattWise - Software-based energy monitoring system with simulated smart-breaker environment
 """
     st.download_button(
         label="Download Summary (.md)",
@@ -320,11 +334,10 @@ with hero_col2:
         solving problems through repetitions and pattern recognition.
         """
     )
-    st.caption("Location: Cebu City, Philippines • Institutional Email: mccauley.bacalla@cit.edu")
-    
+
     m_col1, m_col2, m_col3, m_col4 = st.columns(4)
     with m_col1:
-        st.metric(label="Featured Projects", value="8", delta="Documented")
+        st.metric(label="Featured Projects", value="9", delta="Documented")
     with m_col2:
         st.metric(label="Year Level", value="3rd Year", delta="CIT-U")
     with m_col3:
@@ -361,35 +374,143 @@ with tab_bg:
         I prioritize reliability, deterministic outcomes, and clear design principles.
         """
     )
-    st.info("**Core Principle:** Fundamentals first. Strong conceptual foundations and disciplined repetition drive reliable software.")
-    st.caption("Motto: Keizoku wa chikara nari (Continuity is power / perseverance is strength).")
+    st.info("**Core Principle:** Fundamentals first.")
+    st.info("**Motto:** Keizoku wa chikara nari (Continuity is power / perseverance is strength).")
 
 with tab_edu:
     st.subheader("Academic Education")
-    st.write(
+    st.markdown(
         """
         - **Degree:** Bachelor of Science in Computer Science
         - **Institution:** Cebu Institute of Technology - University (PACUCOA Level IV accredited)
-        - **Year Level:** 3rd Year
+        - **Current Academic Standing:** 3rd Year Undergraduate (First Semester)
         - **Class Section:** F1
         """
     )
-    st.markdown("#### Primary Coursework")
-    edu_col1, edu_col2 = st.columns(2)
-    with edu_col1:
+    
+    st.markdown("#### Programming & Architectural Foundations")
+    st.write(
+        """
+        In my Computer Science curriculum, I have gained the fundamentals of programming and it all began with **C** for our Introduction to Programming concepts, then advanced to **C++** for implementing Data Structures and Algorithms, and utilized **Java** for Object-Oriented Programming.
+
+        Our coursework utilized **CodeChum**, an online assessment platform specifically for onsite laboratory sessions. All programming quizzes, examinations, and activities were exclusively administered and completed during these supervised in-person labs, with the platform enabling real-time code validation and immediate feedback on our implementations.
+
+        Our capstone project for OOP 1 was called **CodeChum++**, an offline code judging system designed with a LeetCode-style interface. This project was developed using Java Swing.
+
+        For OOP 2 it was **+inHealth**, a health tracking application designed to help users monitor, understand, and improve their overall well-being by tracking both their daily meal consumption and physical activities. This project required the strict implementation of Java Swing, OOP design patterns, multithreading, and SQL database management using JDBC with XAMPP.
+        """
+    )
+    
+    cap_col1, cap_col2 = st.columns(2)
+    with cap_col1:
         st.markdown(
             """
-            - **CS313 Automata Theory:** Formal languages, deterministic and non-deterministic finite automata, Turing machines, and grammar solvers.
-            - **Information Management 2:** Advanced relational databases, PostgreSQL, and MySQL integration.
-            - **Data Structures and Algorithms:** Algorithmic complexity, balanced search trees, and optimal data modeling.
+            **OOP 1 Capstone: CodeChum++**  
+            An offline code judging system designed with a LeetCode-style interface, developed using Java Swing for local laboratory environments without internet access.
             """
         )
-    with edu_col2:
+    with cap_col2:
         st.markdown(
             """
-            - **Applied AI and Quantitative Methods:** Python data modeling, numerical methods, and predictive logic.
-            - **Mobile Application Development:** Kotlin architecture components, lifecycle management, and Android background services.
-            - **Software Engineering:** Object-oriented design, class diagrams, and collaborative multi-developer workflows.
+            **OOP 2 Capstone: +inHealth**  
+            A health tracking application to monitor daily meals and desktop activities, developed using Java Swing, OOP design patterns, multithreading, and JDBC with XAMPP MySQL.
+            """
+        )
+    
+    st.markdown("#### Complete Coursework & Subject Curriculum")
+    st.write("Comprehensive record of subjects, foundational domains, and practical capstones completed across each academic semester:")
+
+    with st.expander("First Year - First Semester", expanded=True):
+        st.markdown(
+            """
+            - **CSIT111 Introduction to Computing**  
+              Number systems: binary, hexadecimal, octal representations, base conversions, complements arithmetic, computer hardware architecture fundamentals, computing history, and digital data representations.
+            - **CSIT121 Fundamentals of Programming**  
+              Core fundamentals of C, memory address manipulation, pointers, references, stack vs. heap memory allocation, control flow, algorithmic problem-solving, and foundational sorting algorithms (Bubble Sort, Insertion Sort, Selection Sort).
+            """
+        )
+
+    with st.expander("First Year - Second Semester"):
+        st.markdown(
+            """
+            - **CS132 Introduction to Computer Systems**  
+              Comprehensive digital logic and hardware systems:
+              1. *Review of Computer Data and Number Systems:* Base N counting and conversion, binary arithmetic, and complements.
+              2. *Switching Operations:* Logic gates, digital circuit representations, Boolean functions and expressions, derived logic gates and equivalent circuits.
+              3. *Simplification of Boolean Expressions:* Boolean algebra theorems, Karnaugh Map (K-Map) method.
+              4. *Combinational Logic Circuits (CLSs):* Design procedure, analysis and design of simple CLSs, CLS implementations with Small Scale Integrated (SSI) circuits.  
+              *Final Project:* Designed and implemented a digital binary arithmetic adder circuit to sum two numbers in binary.
+            - **CSIT112 Discrete Structures 1**  
+              Propositional and predicate logic, set theory, relations, functions, mathematical induction, and formal proofs.
+            - **CSIT122 Intermediate Programming**  
+              Continuation of programming fundamentals: advanced C/C++ concepts, modular architecture, recursion, structured data types, dynamic memory management, and file I/O operations.
+            - **CSIT201 Platform-based Development 2 (Web)**  
+              Web development fundamentals covering semantic HTML5, modern CSS3 styling, JavaScript DOM manipulation, event handling, and client-side web interactions.
+            - **MATH136 Differential and Integral Calculus**  
+              Limits, continuity, differentiation rules, optimization, related rates, integration techniques, definite integrals, and engineering applications.
+            """
+        )
+
+    with st.expander("Second Year - First Semester"):
+        st.markdown(
+            """
+            - **CS231 Discrete Structures 2**  
+              Advanced discrete mathematics: recurrence relations, advanced combinatorics, graph theory modeling, trees, connectivity, and discrete probability.
+            - **CS243 Computer Organization and Architecture**  
+              CPU architecture, instruction set architectures, Assembly language fundamentals, register operations, instruction pipelining, cache memory hierarchy, and machine cycle execution.
+            - **CSIT104 Platform-based Development 1 (Multimedia)**  
+              Digital multimedia principles, visual asset production, Canva workflows, color theory, and frontend UI/UX interaction design fundamentals.
+            - **CSIT221 Data Structures and Algorithms**  
+              Comprehensive data structures and algorithms implemented completely from scratch in C++: Arrays, Linked Lists (Singly, Doubly, Circular), Stacks, Queues, Binary Trees, Binary Search Trees (BST), Tree Traversals (Inorder, Preorder, Postorder, Level-order), and Graphs, including graph representations, Breadth-First Search (BFS), Depth-First Search (DFS), and Dijkstra's Shortest Path algorithm.
+            - **CSIT227 Object-Oriented Programming 1**  
+              Core object-oriented principles in Java: encapsulation, inheritance, polymorphism, abstraction, class hierarchies, and interface design.  
+              *Capstone Project:* **CodeChum++** — an offline code judging system designed with a LeetCode-style interface, developed using Java Swing.
+            """
+        )
+
+    with st.expander("Second Year - Second Semester"):
+        st.markdown(
+            """
+            - **CS234 Special Topics in Mathematics**  
+              Linear Algebra: systems of linear equations, matrices, Gaussian elimination, determinants, vector spaces, linear transformations, eigenvalues, and eigenvectors.
+            - **CS244 Design and Analysis of Algorithms**  
+              Rigorous algorithmic analysis and complex data structures implemented from scratch:
+              - *Advanced Tree Structures:* Balanced search trees including Red-Black Trees, Splay Trees, and 2-3-4 Trees (Tree24).
+              - *Hashing & Tables:* Hash tables implemented from scratch with collision resolution strategies.
+              - *Dynamic Programming & Recursion:* Complex recursion problems, Longest Increasing Subsequence (LIS), Fibonacci optimization, and memoization.
+              - *Complexity Analysis:* Rigorous manual time and space complexity analysis (Big-O, Big-Omega, Big-Theta) and algorithm optimization.
+              - *Tractability:* Introduction to NP-completeness and polynomial-time verifications.
+            - **CSIT226 Information Management 1**  
+              Relational database design, Entity-Relationship (ER) modeling, normalization (1NF to 3NF/BCNF), SQL queries, and transactional integrity.  
+              *Capstone Project:* **Clinic Inventory System** — pharmacy management system with FEFO batch deduction and audit logs.
+            - **CSIT228 Object-Oriented Programming 2**  
+              Advanced software engineering in Java: strict OOP design patterns, multithreading, and SQL database management using JDBC with XAMPP.  
+              *Capstone Project:* **+inHealth** — desktop health and meal tracking suite with active exercise reminders.
+            - **CSIT238 Human Computer Interaction**  
+              User-centered design principles, mobile UI/UX ergonomics, usability heuristics, cognitive walkthroughs, wireframing, and interactive prototyping.
+            - **CSIT284 Platform-based Development 3 (Mobile)**  
+              Native Android application engineering in Kotlin using Android Studio: activity lifecycles, background services, notifications, and app widgets.  
+              *Capstone Project:* **MyRoutine** — habit tracker with interactive home-screen widgets and recurring reminders.
+            """
+        )
+
+    with st.expander("Third Year - First Semester (Current)", expanded=True):
+        st.markdown(
+            """
+            - **CS313 Automata Theory and Formal Languages**  
+              Formal computation models: Deterministic Finite Automata (DFA), Non-Deterministic Finite Automata (NFA), Regular Expressions, Regular Languages, Context-Free Grammars (CFG), Regular Grammars, Pushdown Automata (PDA), and Turing Machines.  
+              *Independent Verification Tool:* **I Will Pass Automata Theory** — closed private verification platform independent from AI.
+            - **CS345 Intelligent Systems 1**  
+              Foundations of computational intelligence: fuzzy logic, fuzzy inference systems, linguistic variables, and Artificial Neural Networks (ANN).
+            - **CSIT212 Quantitative Methods**  
+              Applied statistics and probability modeling: Normal distribution, exponential distribution, Poisson distribution, Bayes' theorem, permutations, combinations, Probability Density Functions (PDF), Cumulative Distribution Functions (CDF), and statistical hypothesis analysis.
+            - **CSIT321 Applications Development and Emerging Technologies**  
+              Modern scalable backend architectures, microservices, cloud deployments, and emerging web technologies.
+            - **CSIT327 Information Management 2**  
+              Advanced relational database administration: complex SQL querying, indexing, stored procedures, transactions, and hands-on application development using PostgreSQL and MySQL.
+            - **ES038 Technopreneurship**  
+              Collaborative technology entrepreneurship and startup engineering in a 10-person team:  
+              *Capstone Project:* **WattWise** — a software-based energy monitoring system utilizing a simulated smart-breaker environment, eliminating the need for physical hardware.
             """
         )
 
