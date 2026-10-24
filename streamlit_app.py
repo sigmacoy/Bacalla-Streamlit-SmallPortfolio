@@ -905,12 +905,11 @@ with tab_bg:
     st.write(
         """
         I am a third-year Computer Science student at Cebu Institute of Technology - University. 
+        Our college approach is more problem-solving and critical thinking, that is one of my strong skills. 
         My approach to software development is grounded in disciplined practice: I learn through repetition, 
         deconstructing algorithms, and recognizing recurring patterns across systems.
         
-        Whether building native desktop applications in Java and Swift, designing relational database schemas 
-        with strict FEFO constraints, or developing specialized tools for formal language verification, 
-        I prioritize reliability, deterministic outcomes, and clear design principles.
+        Through the guidance of my professors, I have developed a strong foundation in software engineering best practices. I approach development by utilizing Object-Oriented Programming (OOP) and MVC (Model-View-Controller) architecture, as I value the clean separation of concerns, reliability, and structured design that these paradigms provide.
         """
     )
     st.info("**Core Principle:** Fundamentals first.")
@@ -1166,30 +1165,42 @@ with tab_more:
             "category": "Productivity & Learning Add-on",
             "desc": "Anki add-on that highlights the answer button you pressed last time for each card during review.",
             "link": "https://github.com/sigmacoy/anki-last-ease-highlight-addon",
+            "button_label": "GitHub Link",
         },
         {
             "title": "FuzzyLogic-Vehicle-Refuel-Recommender",
             "category": "Intelligent Systems Prototype (CS345)",
             "desc": "A Python-based fuzzy logic inference system built from scratch for CS345 Intelligent Systems 1. It evaluates vehicle fuel levels and distance to the next gas station to calculate optimal refuel urgency using Mamdani.",
             "link": "https://github.com/sigmacoy/FuzzyLogic-Vehicle-Refuel-Recommender",
+            "button_label": "GitHub Link",
         },
         {
             "title": "Messenger Chat Deletor",
             "category": "Browser Extension & Privacy Automation",
             "desc": "A Chrome extension that bulk-deletes chat messages and deletes archive stories. Marketplace conversations and video stories are automatically skipped.",
             "link": "https://github.com/sigmacoy/messenger-peace-of-mind",
+            "button_label": "GitHub Link",
         },
         {
             "title": "TreeViz-CLI",
             "category": "Terminal Data Structures Utility",
             "desc": "A terminal-based interactive visualization tool for learning and exploring tree data structures - no GUI, runs entirely in the command line.",
             "link": "https://github.com/sigmacoy/Terminal-Tree-Viz",
+            "button_label": "GitHub Link",
         },
         {
             "title": "SharePoint Video Skip Arrow",
             "category": "Browser Extension & Workflow",
             "desc": "Nobody wants to stretch their fingers for cumbersome default shortcuts just to seek through a video. This lightweight browser extension maps the Left Arrow (<-) and Right Arrow (->) keys directly to SharePoint's native 10-second skip buttons, alongside the Spacebar for quick play and pause, working exclusively on *.sharepoint.com sites.",
             "link": "https://github.com/sigmacoy/sharepoint-video-skip-arrow",
+            "button_label": "GitHub Link",
+        },
+        {
+            "title": "LeetCode Problem Solving",
+            "category": "",
+            "desc": "I do LeetCode problems, as this helps problem solving and critical thinking to my CSIT221 Data Structures and Algorithms and CS244 Design and Analysis of Algorithms",
+            "link": "https://leetcode.com/u/sigmacoy/",
+            "button_label": "LeetCode Profile",
         },
     ]
     
@@ -1211,7 +1222,7 @@ with tab_more:
                 """,
                 unsafe_allow_html=True,
             )
-            st.link_button("GitHub Link", url=mp["link"], use_container_width=True, key=f"btn_more_{i}")
+            st.link_button(mp.get("button_label", "GitHub Link"), url=mp["link"], use_container_width=True, key=f"btn_more_{i}")
             st.markdown("<br>", unsafe_allow_html=True)
             
         with col_m2:
@@ -1231,7 +1242,7 @@ with tab_more:
                     """,
                     unsafe_allow_html=True,
                 )
-                st.link_button("GitHub Link", url=mp2["link"], use_container_width=True, key=f"btn_more_{i+1}")
+                st.link_button(mp2.get("button_label", "GitHub Link"), url=mp2["link"], use_container_width=True, key=f"btn_more_{i+1}")
                 st.markdown("<br>", unsafe_allow_html=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)

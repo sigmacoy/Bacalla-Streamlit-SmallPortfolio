@@ -56,6 +56,7 @@ This application serves as an interactive showcase of academic coursework, found
 - **Messenger Chat Deletor:** Chrome extension for bulk-deleting chat messages and archiving stories with automatic safety filters.
 - **TreeViz-CLI:** Terminal-based interactive visualization tool for exploring tree data structures from the command line.
 - **SharePoint Video Skip Arrow:** Browser extension mapping arrow keys to native SharePoint 10-second video seeking.
+- **LeetCode Problem Solving:** Practice repository and problem solving supporting CSIT221 Data Structures and Algorithms coursework.
 
 ---
 
