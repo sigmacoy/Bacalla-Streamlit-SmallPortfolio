@@ -12,64 +12,270 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Custom Minimalist CSS for typography and subtle card styling
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
-    html, body, [class*="css"] {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    
-    .metric-card {
-        background-color: #F4F4F5;
-        border: 1px solid #E4E4E7;
-        border-radius: 8px;
-        padding: 16px;
-        text-align: center;
-    }
-    
-    .project-card {
-        background-color: #FFFFFF;
-        border: 1px solid #E4E4E7;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 16px;
-        transition: border-color 0.15s ease;
-    }
-    
-    .project-card:hover {
-        border-color: #A1A1AA;
-    }
-    
-    .badge {
-        display: inline-block;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        background-color: #F4F4F5;
-        color: #27272A;
-        border: 1px solid #E4E4E7;
-        margin-right: 4px;
-        margin-bottom: 4px;
-    }
-    
-    .badge-primary {
-        background-color: #18181B;
-        color: #FAFAFA;
-        border: 1px solid #18181B;
-    }
-    
-    /* Minimize main container bottom padding */
-    .block-container {
-        padding-bottom: 0.5rem !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# Theme State Evaluation (at top before CSS injection)
+is_dark = st.session_state.get("dark_mode_toggle", False)
+
+# Custom Minimalist CSS for typography, layout, and theme toggling
+theme_css = f"""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}}
+
+/* Sidebar Light/Dark Switch Button: top-left aligned with close sidebar button */
+.st-key-theme_switch_wrapper {{
+    position: absolute;
+    top: 0;
+    left: 1.25rem;
+    height: 3.75rem;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+}}
+
+.st-key-theme_switch_wrapper [data-testid="stCheckbox"] {{
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: unset !important;
+}}
+
+.st-key-theme_switch_wrapper label {{
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}}
+
+.metric-card {{
+    background-color: {"#18181B" if is_dark else "#F4F4F5"};
+    border: 1px solid {"#27272A" if is_dark else "#E4E4E7"};
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}}
+
+.project-card {{
+    background-color: {"#18181B" if is_dark else "#FFFFFF"};
+    border: 1px solid {"#27272A" if is_dark else "#E4E4E7"};
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: border-color 0.15s ease;
+}}
+
+.project-card:hover {{
+    border-color: {"#52525B" if is_dark else "#A1A1AA"};
+}}
+
+.badge {{
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: {"#27272A" if is_dark else "#F4F4F5"};
+    color: {"#E4E4E7" if is_dark else "#27272A"};
+    border: 1px solid {"#3F3F46" if is_dark else "#E4E4E7"};
+    margin-right: 4px;
+    margin-bottom: 4px;
+}}
+
+.badge-primary {{
+    background-color: {"#FAFAFA" if is_dark else "#18181B"};
+    color: {"#09090B" if is_dark else "#FAFAFA"};
+    border: 1px solid {"#FAFAFA" if is_dark else "#18181B"};
+}}
+
+.divider {{
+    border-bottom-color: {"#27272A" if is_dark else "#E4E4E7"} !important;
+}}
+
+/* Minimize main container bottom padding */
+.block-container {{
+    padding-bottom: 0.5rem !important;
+}}
+""" + ("""
+/* Dark Mode Comprehensive Overrides */
+html, body, .stApp, [data-testid="stAppViewContainer"] {
+    background-color: #09090B !important;
+    color: #F4F4F5 !important;
+}
+
+header[data-testid="stHeader"] {
+    background-color: #09090B !important;
+}
+
+[data-testid="stSidebar"] {
+    background-color: #121214 !important;
+    border-right: 1px solid #27272A !important;
+}
+
+[data-testid="stSidebarContent"] {
+    background-color: #121214 !important;
+}
+
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] span, 
+[data-testid="stSidebar"] label, 
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3, 
+[data-testid="stSidebar"] li {
+    color: #E4E4E7 !important;
+}
+
+[data-testid="stSidebarCollapseButton"] button {
+    color: #A1A1AA !important;
+}
+
+[data-testid="stSidebarCollapseButton"] button:hover {
+    color: #FAFAFA !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+    border: 1px solid #27272A !important;
+}
+
+/* Headings and Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #FAFAFA !important;
+}
+
+p, li {
+    color: #D4D4D8 !important;
+}
+
+strong, b {
+    color: #FFFFFF !important;
+}
+
+.stCaption, [data-testid="stCaptionContainer"] p {
+    color: #A1A1AA !important;
+}
+
+.project-card h3, .project-card h4 {
+    color: #FAFAFA !important;
+}
+
+.project-card p {
+    color: #D4D4D8 !important;
+}
+
+/* Metrics */
+[data-testid="stMetricValue"] {
+    color: #FAFAFA !important;
+}
+[data-testid="stMetricLabel"] p {
+    color: #A1A1AA !important;
+}
+[data-testid="stMetricDelta"] {
+    color: #A1A1AA !important;
+}
+
+/* Expanders */
+[data-testid="stExpander"] {
+    background-color: #18181B !important;
+    border: 1px solid #27272A !important;
+}
+[data-testid="stExpander"] summary {
+    color: #FAFAFA !important;
+}
+[data-testid="stExpander"] summary svg {
+    fill: #A1A1AA !important;
+}
+
+/* Tabs */
+button[data-baseweb="tab"] {
+    color: #A1A1AA !important;
+    background-color: transparent !important;
+}
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #FAFAFA !important;
+    border-bottom-color: #FAFAFA !important;
+}
+
+/* Form Controls */
+input, textarea {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+    border-color: #3F3F46 !important;
+}
+[data-baseweb="input"] {
+    background-color: #18181B !important;
+    border-color: #3F3F46 !important;
+}
+[data-baseweb="input"] input {
+    color: #FAFAFA !important;
+}
+[data-baseweb="textarea"] {
+    background-color: #18181B !important;
+    border-color: #3F3F46 !important;
+}
+[data-baseweb="textarea"] textarea {
+    color: #FAFAFA !important;
+}
+[data-baseweb="select"] > div {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+    border-color: #3F3F46 !important;
+}
+[data-baseweb="select"] span {
+    color: #FAFAFA !important;
+}
+[data-baseweb="popover"], [data-baseweb="menu"] {
+    background-color: #18181B !important;
+    border-color: #3F3F46 !important;
+}
+[data-baseweb="menu"] li {
+    color: #FAFAFA !important;
+}
+
+/* Buttons */
+button[kind="secondary"] {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+    border-color: #3F3F46 !important;
+}
+button[kind="secondary"]:hover {
+    background-color: #27272A !important;
+    border-color: #71717A !important;
+}
+button[kind="secondary"]:disabled {
+    background-color: #18181B !important;
+    color: #52525B !important;
+    border-color: #27272A !important;
+}
+a[kind="secondary"] {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+    border-color: #3F3F46 !important;
+}
+a[kind="secondary"]:hover {
+    background-color: #27272A !important;
+    border-color: #71717A !important;
+}
+
+/* Dataframe and footer */
+[data-testid="stDataFrame"] {
+    border-color: #27272A !important;
+}
+div[style*="border-top: 1px solid"] {
+    border-top-color: #27272A !important;
+}
+a[style*="color: #2563EB"] {
+    color: #60A5FA !important;
+}
+""" if is_dark else "") + "\n</style>"
+
+st.markdown(theme_css, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # Session State Initialization
@@ -238,6 +444,14 @@ projects_data = [
 # Sidebar Component: Profile & Explicit Fast Navigation
 # ---------------------------------------------------------
 with st.sidebar:
+    with st.container(key="theme_switch_wrapper"):
+        st.toggle(
+            "Dark Mode",
+            value=is_dark,
+            key="dark_mode_toggle",
+            help="Switch between Light and Dark mode",
+        )
+    
     st.image("assets/my-pic2.png", use_container_width=True, caption="")
     
     st.markdown("### Student Profile")
@@ -653,12 +867,36 @@ skill_col1, skill_col2 = st.columns([1, 1.25], gap="large")
 
 with skill_col1:
     st.subheader(f"Projects Completed per Stack (>= {min_proj_count} Projects)")
+    chart_bar_color = "#FAFAFA" if is_dark else "#18181B"
+    axis_label_color = "#A1A1AA" if is_dark else "#27272A"
+    axis_title_color = "#FAFAFA" if is_dark else "#09090B"
+    grid_color = "#27272A" if is_dark else "#E4E4E7"
+    
     chart = (
         alt.Chart(filtered_skills)
-        .mark_bar(color="#18181B", cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+        .mark_bar(color=chart_bar_color, cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
         .encode(
-            x=alt.X("Skill:N", sort=None, title="Technical Stack", axis=alt.Axis(labelAngle=-25, labelLimit=180)),
-            y=alt.Y("Projects Built:Q", title="Completed Projects", axis=alt.Axis(tickMinStep=1)),
+            x=alt.X(
+                "Skill:N",
+                sort=None,
+                title="Technical Stack",
+                axis=alt.Axis(
+                    labelAngle=-25,
+                    labelLimit=180,
+                    labelColor=axis_label_color,
+                    titleColor=axis_title_color,
+                ),
+            ),
+            y=alt.Y(
+                "Projects Built:Q",
+                title="Completed Projects",
+                axis=alt.Axis(
+                    tickMinStep=1,
+                    labelColor=axis_label_color,
+                    titleColor=axis_title_color,
+                    gridColor=grid_color,
+                ),
+            ),
             tooltip=["Skill", "Category", "Projects Built", "Course Units"],
         )
         .properties(height=300)
