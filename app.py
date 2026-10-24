@@ -24,32 +24,51 @@ html, body, [class*="css"] {{
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }}
 
-/* Sidebar Light/Dark Switch Button: top-left aligned with close sidebar button */
+/* Sidebar Light/Dark Switch Button: precision horizontal alignment with headerNoPadding */
 .st-key-theme_switch_wrapper {{
-    position: absolute;
-    top: 0;
-    left: 1.25rem;
-    height: 3.75rem;
-    display: flex;
-    align-items: center;
-    z-index: 1000;
+    position: absolute !important;
+    top: 0 !important;
+    left: 20px !important;
+    height: 60px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    z-index: 1000 !important;
     margin: 0 !important;
     padding: 0 !important;
     width: auto !important;
 }}
 
+.st-key-theme_switch_wrapper .stElementContainer {{
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+}}
+
 .st-key-theme_switch_wrapper [data-testid="stCheckbox"] {{
+    display: flex !important;
+    align-items: center !important;
     margin: 0 !important;
     padding: 0 !important;
     min-height: unset !important;
 }}
 
 .st-key-theme_switch_wrapper label {{
+    display: flex !important;
+    align-items: center !important;
     margin: 0 !important;
     padding: 0 !important;
     cursor: pointer !important;
     font-size: 0.85rem !important;
     font-weight: 500 !important;
+    line-height: 1 !important;
+}}
+
+.st-key-theme_switch_wrapper label > div:first-of-type {{
+    transform: translateY(-1.25px) !important;
 }}
 
 .metric-card {{
@@ -96,9 +115,23 @@ html, body, [class*="css"] {{
     border-bottom-color: {"#27272A" if is_dark else "#E4E4E7"} !important;
 }}
 
-/* Minimize main container bottom padding */
-.block-container {{
-    padding-bottom: 0.5rem !important;
+/* Center main content container with balanced, symmetrical margins */
+.block-container,
+[data-testid="stMainBlockContainer"] {{
+    max-width: 1040px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 2rem !important;
+    width: 100% !important;
+}}
+
+[data-testid="stMain"] {{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }}
 """ + ("""
 /* Dark Mode Comprehensive Overrides */
@@ -111,6 +144,7 @@ header[data-testid="stHeader"] {
     background-color: #09090B !important;
 }
 
+/* Sidebar styling in Dark Mode */
 [data-testid="stSidebar"] {
     background-color: #121214 !important;
     border-right: 1px solid #27272A !important;
@@ -138,10 +172,33 @@ header[data-testid="stHeader"] {
     color: #FAFAFA !important;
 }
 
-[data-testid="stSidebarCollapsedControl"] button {
+/* Sidebar collapsed / expand button - high visibility when headerNoPadding is closed */
+[data-testid="stSidebarCollapsedControl"] {
+    background-color: #18181B !important;
+    border: 1px solid #3F3F46 !important;
+    border-radius: 6px !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button,
+button[data-testid="stExpandSidebarButton"],
+[data-testid="stSidebarCollapsedControl"] button[kind="headerNoPadding"] {
     background-color: #18181B !important;
     color: #FAFAFA !important;
-    border: 1px solid #27272A !important;
+    border: none !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button svg,
+button[data-testid="stExpandSidebarButton"] svg,
+[data-testid="stSidebarCollapsedControl"] button[kind="headerNoPadding"] svg {
+    fill: #FAFAFA !important;
+    stroke: #FAFAFA !important;
+    color: #FAFAFA !important;
+}
+
+[data-testid="stSidebarCollapsedControl"]:hover,
+[data-testid="stSidebarCollapsedControl"] button:hover {
+    background-color: #27272A !important;
+    border-color: #71717A !important;
 }
 
 /* Headings and Typography */
@@ -180,16 +237,33 @@ strong, b {
     color: #A1A1AA !important;
 }
 
-/* Expanders */
+/* Complete Coursework & Subject Curriculum Expanders */
 [data-testid="stExpander"] {
     background-color: #18181B !important;
     border: 1px solid #27272A !important;
+    border-radius: 8px !important;
 }
 [data-testid="stExpander"] summary {
+    background-color: #18181B !important;
     color: #FAFAFA !important;
+}
+[data-testid="stExpander"] summary:hover {
+    color: #FFFFFF !important;
 }
 [data-testid="stExpander"] summary svg {
     fill: #A1A1AA !important;
+}
+[data-testid="stExpander"] details {
+    background-color: #18181B !important;
+    border-color: #27272A !important;
+}
+[data-testid="stExpander"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stExpander"] [data-testid="stMarkdownContainer"] li {
+    color: #D4D4D8 !important;
+}
+[data-testid="stExpander"] [data-testid="stMarkdownContainer"] strong,
+[data-testid="stExpander"] [data-testid="stMarkdownContainer"] b {
+    color: #FAFAFA !important;
 }
 
 /* Tabs */
@@ -202,43 +276,127 @@ button[data-baseweb="tab"][aria-selected="true"] {
     border-bottom-color: #FAFAFA !important;
 }
 
-/* Form Controls */
-input, textarea {
-    background-color: #18181B !important;
-    color: #FAFAFA !important;
-    border-color: #3F3F46 !important;
+/* Placeholders in inputs, textareas, and selectboxes (gray in dark mode) */
+::placeholder {
+    color: #71717A !important;
+    -webkit-text-fill-color: #71717A !important;
+    opacity: 1 !important;
 }
-[data-baseweb="input"] {
-    background-color: #18181B !important;
-    border-color: #3F3F46 !important;
+input::placeholder, textarea::placeholder {
+    color: #71717A !important;
+    -webkit-text-fill-color: #71717A !important;
+    opacity: 1 !important;
 }
-[data-baseweb="input"] input {
-    color: #FAFAFA !important;
+[data-testid="stTextInputRootElement"] input::placeholder,
+[data-testid="stTextAreaRootElement"] textarea::placeholder,
+[data-baseweb="input"] input::placeholder,
+[data-baseweb="textarea"] textarea::placeholder {
+    color: #71717A !important;
+    -webkit-text-fill-color: #71717A !important;
+    opacity: 1 !important;
 }
-[data-baseweb="textarea"] {
-    background-color: #18181B !important;
-    border-color: #3F3F46 !important;
-}
+
+/* Input Fields & Textareas */
+[data-testid="stTextInputRootElement"],
+[data-testid="stTextInputRootElement"] input,
+[data-testid="stTextAreaRootElement"],
+[data-testid="stTextAreaRootElement"] textarea,
+[data-baseweb="input"],
+[data-baseweb="input"] input,
+[data-baseweb="textarea"],
 [data-baseweb="textarea"] textarea {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+    -webkit-text-fill-color: #FAFAFA !important;
+    border-color: #3F3F46 !important;
+}
+
+/* Filter by Tool / Stack (st.multiselect) & Selectboxes */
+[data-baseweb="select"] {
+    background-color: #18181B !important;
+    border-color: #3F3F46 !important;
     color: #FAFAFA !important;
 }
 [data-baseweb="select"] > div {
     background-color: #18181B !important;
-    color: #FAFAFA !important;
     border-color: #3F3F46 !important;
-}
-[data-baseweb="select"] span {
     color: #FAFAFA !important;
+}
+[data-baseweb="select"] input {
+    color: #FAFAFA !important;
+    -webkit-text-fill-color: #FAFAFA !important;
+}
+[data-baseweb="select"] input::placeholder {
+    color: #71717A !important;
+    -webkit-text-fill-color: #71717A !important;
+}
+[data-baseweb="tag"] {
+    background-color: #27272A !important;
+    color: #FAFAFA !important;
+    border: 1px solid #3F3F46 !important;
+}
+[data-baseweb="tag"] span {
+    color: #FAFAFA !important;
+}
+[data-baseweb="tag"] [role="button"] svg {
+    fill: #A1A1AA !important;
+}
+[data-baseweb="tag"] [role="button"]:hover svg {
+    fill: #FAFAFA !important;
 }
 [data-baseweb="popover"], [data-baseweb="menu"] {
     background-color: #18181B !important;
-    border-color: #3F3F46 !important;
+    border: 1px solid #3F3F46 !important;
 }
 [data-baseweb="menu"] li {
+    background-color: #18181B !important;
+    color: #FAFAFA !important;
+}
+[data-baseweb="menu"] li:hover,
+[data-baseweb="menu"] li[aria-selected="true"] {
+    background-color: #27272A !important;
     color: #FAFAFA !important;
 }
 
-/* Buttons */
+/* Form Controls & Segmented Control */
+[data-testid="stSegmentedControl"] button,
+button[data-variant="segmented_control"] {
+    background-color: #18181B !important;
+    color: #E4E4E7 !important;
+    border-color: #3F3F46 !important;
+}
+[data-testid="stSegmentedControl"] button[data-selected],
+button[data-variant="segmented_control"][data-selected] {
+    background-color: #FAFAFA !important;
+    color: #09090B !important;
+    border-color: #FAFAFA !important;
+    font-weight: 600 !important;
+}
+
+/* Submit Message Button in Send Feedback Form */
+[data-testid="stFormSubmitButton"] button,
+button[kind="primaryFormSubmit"],
+button[kind="secondaryFormSubmit"],
+button[data-testid*="FormSubmit"] {
+    background-color: #FAFAFA !important;
+    color: #09090B !important;
+    border: 1px solid #FAFAFA !important;
+    font-weight: 600 !important;
+}
+[data-testid="stFormSubmitButton"] button *,
+button[kind="primaryFormSubmit"] *,
+button[kind="secondaryFormSubmit"] * {
+    color: #09090B !important;
+}
+[data-testid="stFormSubmitButton"] button:hover,
+button[kind="primaryFormSubmit"]:hover,
+button[kind="secondaryFormSubmit"]:hover {
+    background-color: #E4E4E7 !important;
+    color: #09090B !important;
+    border-color: #E4E4E7 !important;
+}
+
+/* Standard Buttons & Secondary Buttons */
 button[kind="secondary"] {
     background-color: #18181B !important;
     color: #FAFAFA !important;
@@ -263,7 +421,7 @@ a[kind="secondary"]:hover {
     border-color: #71717A !important;
 }
 
-/* Dataframe and footer */
+/* Dataframe, Footer, and Links */
 [data-testid="stDataFrame"] {
     border-color: #27272A !important;
 }
@@ -272,6 +430,11 @@ div[style*="border-top: 1px solid"] {
 }
 a[style*="color: #2563EB"] {
     color: #60A5FA !important;
+}
+
+/* Protect VegaLite Chart from dark mode disruption */
+[data-testid="stVegaLiteChart"] {
+    background-color: transparent !important;
 }
 """ if is_dark else "") + "\n</style>"
 
@@ -441,15 +604,118 @@ projects_data = [
 ]
 
 # ---------------------------------------------------------
+# Verified Academic & Technical Certifications
+# ---------------------------------------------------------
+certificates_data = [
+    {
+        "title": "Introduction to SQL",
+        "issuer": "Sololearn",
+        "date": "Oct 23, 2026",
+        "image": "assets/certifications/introduction-to-sql.jpg",
+        "link": "https://www.sololearn.com/en/certificates/CC-DUK6PAZB",
+    },
+    {
+        "title": "Introduction to Python",
+        "issuer": "Sololearn",
+        "date": "Oct 9, 2026",
+        "image": "assets/certifications/introduction-to-python-oct26.jpeg",
+        "link": "https://www.sololearn.com/en/certificates/CC-WHPGSYZD",
+    },
+    {
+        "title": "C# Intermediate",
+        "issuer": "Sololearn",
+        "date": "August 28, 2026",
+        "image": "assets/certifications/c#-intermediate-aug26.jpeg",
+        "link": "https://www.sololearn.com/en/certificates/CC-V96UPVOW",
+    },
+    {
+        "title": "Introduction to C#",
+        "issuer": "Sololearn",
+        "date": "Aug 19, 2026",
+        "image": "assets/certifications/introduction-to-c#.jpeg",
+        "link": "https://www.sololearn.com/en/certificates/CC-OSXJMWBO",
+    },
+    {
+        "title": "Parangal Academic Achiever 2026",
+        "issuer": "Cebu Institute of Technology - University",
+        "date": "May 28, 2026",
+        "image": "assets/certifications/parangal-2026.jpeg",
+        "link": None,
+    },
+    {
+        "title": "CITU Java Object-Oriented Programming Certification",
+        "issuer": "CodeChum",
+        "date": "May 28, 2026",
+        "image": "assets/certifications/citu-java-oop-certification.jpeg",
+        "link": "https://citu.codechum.com/student/certificates/28429",
+    },
+    {
+        "title": "Parangal Academic Achiever 2025",
+        "issuer": "Cebu Institute of Technology - University",
+        "date": "May 9, 2025",
+        "image": "assets/certifications/parangal-2025.jpeg",
+        "link": None,
+    },
+    {
+        "title": "C Programming 2",
+        "issuer": "CodeChum",
+        "date": "April 29, 2025",
+        "image": "assets/certifications/c-programming-2.jpeg",
+        "link": "https://citu.codechum.com/student/certificates/9276",
+    },
+    {
+        "title": "CITU C Programming 1 Certification",
+        "issuer": "CodeChum",
+        "date": "April 26, 2025",
+        "image": "assets/certifications/citu-c-programming-1.jpeg",
+        "link": "https://citu.codechum.com/student/certificates/9707",
+    },
+    {
+        "title": "AI Ready ASEAN",
+        "issuer": "ASEAN Foundation",
+        "date": "December 2, 2025",
+        "image": "assets/certifications/ai-class-ready.jpeg",
+        "link": None,
+    },
+    {
+        "title": "C++ Intermediate",
+        "issuer": "Sololearn",
+        "date": "September 27, 2025",
+        "image": "assets/certifications/c++-intermediate.jpeg",
+        "link": "https://www.sololearn.com/certificates/CC-UKIK68VZ",
+    },
+    {
+        "title": "Java Intermediate",
+        "issuer": "Sololearn",
+        "date": "August 26, 2025",
+        "image": "assets/certifications/java-intermediate.jpeg",
+        "link": "https://www.sololearn.com/certificates/CC-DTI9TXO2",
+    },
+    {
+        "title": "Introduction to Java",
+        "issuer": "Sololearn",
+        "date": "August 22, 2025",
+        "image": "assets/certifications/introduction-to-java.jpeg",
+        "link": "https://www.sololearn.com/en/certificates/CC-1ISXWAME",
+    },
+    {
+        "title": "Introduction to CSS",
+        "issuer": "Sololearn",
+        "date": "March 26, 2025",
+        "image": "assets/certifications/introduction-to-css.jpeg",
+        "link": "https://www.sololearn.com/en/certificates/CC-DVC6XKUV",
+    },
+]
+
+# ---------------------------------------------------------
 # Sidebar Component: Profile & Explicit Fast Navigation
 # ---------------------------------------------------------
 with st.sidebar:
     with st.container(key="theme_switch_wrapper"):
         st.toggle(
-            "Dark Mode",
+            "",
             value=is_dark,
             key="dark_mode_toggle",
-            help="Switch between Light and Dark mode",
         )
     
     st.image("assets/my-pic2.png", use_container_width=True, caption="")
@@ -501,6 +767,11 @@ Core Skills:
 - Languages & Stacks: Python, TypeScript, JavaScript, Java, Kotlin, Swift, PHP, C, C++, HTML/CSS
 - Databases: MySQL, PostgreSQL
 - Coursework: Automata Theory (CS313), Information Management 2, Applied AI & Quantitative Methods, Design & Analysis of Algorithms
+
+Certifications (14 Verified Credentials):
+- Sololearn: Introduction to SQL, Introduction to Python, C# Intermediate, Introduction to C#, C++ Intermediate, Java Intermediate, Introduction to Java, Introduction to CSS
+- CodeChum: CITU Java OOP, CITU C Programming 1, C Programming 2
+- Institutional Honors: Parangal Academic Achiever (2025, 2026), AI Ready ASEAN
 
 Projects:
 1. I Will Pass Automata Theory - Closed private verification tool for CS313 Automata Theory
@@ -568,11 +839,12 @@ st.markdown('<a id="autobiography"></a>', unsafe_allow_html=True)
 st.header("Autobiography")
 st.write("Background, academic education, focus areas, and milestones.")
 
-tab_bg, tab_edu, tab_interest, tab_milestones, tab_more = st.tabs([
+tab_bg, tab_edu, tab_interest, tab_milestones, tab_certs, tab_more = st.tabs([
     "Background & Philosophy",
     "Academic Education",
     "Focus Areas & Goals",
     "Key Milestones",
+    "Certificates",
     "More",
 ])
 
@@ -783,6 +1055,53 @@ with tab_milestones:
         },
     )
 
+with tab_certs:
+    st.subheader("Certifications & Academic Honors")
+    st.write("Verified technical certifications from Sololearn and CodeChum, alongside institutional academic achiever honors from CIT-U:")
+    
+    for i in range(0, len(certificates_data), 2):
+        c_col1, c_col2 = st.columns(2, gap="medium")
+        with c_col1:
+            c1 = certificates_data[i]
+            st.image(c1["image"], use_container_width=True)
+            st.markdown(
+                f"""
+                <div style="margin-top: 4px; margin-bottom: 8px;">
+                    <strong style="font-size: 0.95rem;">{c1['title']}</strong><br>
+                    <span style="font-size: 0.82rem; color: #71717A;">
+                        Issuer: {c1['issuer']} • Date: {c1['date']}
+                    </span>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            if c1.get("link"):
+                st.link_button("Verify Credential", url=c1["link"], use_container_width=True, key=f"cert_link_{i}")
+            else:
+                st.button("Institutional Credential", disabled=True, use_container_width=True, key=f"cert_btn_{i}")
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+        with c_col2:
+            if i + 1 < len(certificates_data):
+                c2 = certificates_data[i + 1]
+                st.image(c2["image"], use_container_width=True)
+                st.markdown(
+                    f"""
+                    <div style="margin-top: 4px; margin-bottom: 8px;">
+                        <strong style="font-size: 0.95rem;">{c2['title']}</strong><br>
+                        <span style="font-size: 0.82rem; color: #71717A;">
+                            Issuer: {c2['issuer']} • Date: {c2['date']}
+                        </span>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+                if c2.get("link"):
+                    st.link_button("Verify Credential", url=c2["link"], use_container_width=True, key=f"cert_link_{i+1}")
+                else:
+                    st.button("Institutional Credential", disabled=True, use_container_width=True, key=f"cert_btn_{i+1}")
+                st.markdown("<br>", unsafe_allow_html=True)
+
 with tab_more:
     st.subheader("Side Projects & Developer Tools")
     st.write("Additional independent tools, browser extensions, terminal utilities, and academic prototypes:")
@@ -820,23 +1139,46 @@ with tab_more:
         },
     ]
     
-    for mp in more_projects:
-        st.markdown(
-            f"""
-            <div class="project-card">
-                <h4 style="margin: 0; padding-bottom: 2px;">{mp['title']}</h4>
-                <p style="color: #71717A; font-size: 0.8rem; margin-top: 2px; margin-bottom: 8px;">
-                    <em>{mp['category']}</em>
-                </p>
-                <p style="font-size: 0.9rem; line-height: 1.5; color: #27272A; margin-bottom: 12px; text-align: justify; text-justify: inter-word;">
-                    {mp['desc']}
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        st.link_button("GitHub Link", url=mp["link"], use_container_width=False)
-        st.markdown("<br>", unsafe_allow_html=True)
+    for i in range(0, len(more_projects), 2):
+        col_m1, col_m2 = st.columns(2, gap="medium")
+        with col_m1:
+            mp = more_projects[i]
+            st.markdown(
+                f"""
+                <div class="project-card" style="padding: 16px; margin-bottom: 10px; min-height: 200px;">
+                    <h4 style="margin: 0; padding-bottom: 2px; font-size: 1rem;">{mp['title']}</h4>
+                    <p style="color: #71717A; font-size: 0.78rem; margin-top: 2px; margin-bottom: 8px;">
+                        <em>{mp['category']}</em>
+                    </p>
+                    <p style="font-size: 0.88rem; line-height: 1.45; color: #27272A; margin-bottom: 10px; text-align: justify;">
+                        {mp['desc']}
+                    </p>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            st.link_button("GitHub Link", url=mp["link"], use_container_width=True, key=f"btn_more_{i}")
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+        with col_m2:
+            if i + 1 < len(more_projects):
+                mp2 = more_projects[i + 1]
+                st.markdown(
+                    f"""
+                    <div class="project-card" style="padding: 16px; margin-bottom: 10px; min-height: 200px;">
+                        <h4 style="margin: 0; padding-bottom: 2px; font-size: 1rem;">{mp2['title']}</h4>
+                        <p style="color: #71717A; font-size: 0.78rem; margin-top: 2px; margin-bottom: 8px;">
+                            <em>{mp2['category']}</em>
+                        </p>
+                        <p style="font-size: 0.88rem; line-height: 1.45; color: #27272A; margin-bottom: 10px; text-align: justify;">
+                            {mp2['desc']}
+                        </p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+                st.link_button("GitHub Link", url=mp2["link"], use_container_width=True, key=f"btn_more_{i+1}")
+                st.markdown("<br>", unsafe_allow_html=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
@@ -867,36 +1209,12 @@ skill_col1, skill_col2 = st.columns([1, 1.25], gap="large")
 
 with skill_col1:
     st.subheader(f"Projects Completed per Stack (>= {min_proj_count} Projects)")
-    chart_bar_color = "#FAFAFA" if is_dark else "#18181B"
-    axis_label_color = "#A1A1AA" if is_dark else "#27272A"
-    axis_title_color = "#FAFAFA" if is_dark else "#09090B"
-    grid_color = "#27272A" if is_dark else "#E4E4E7"
-    
     chart = (
         alt.Chart(filtered_skills)
-        .mark_bar(color=chart_bar_color, cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+        .mark_bar(color="#18181B", cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
         .encode(
-            x=alt.X(
-                "Skill:N",
-                sort=None,
-                title="Technical Stack",
-                axis=alt.Axis(
-                    labelAngle=-25,
-                    labelLimit=180,
-                    labelColor=axis_label_color,
-                    titleColor=axis_title_color,
-                ),
-            ),
-            y=alt.Y(
-                "Projects Built:Q",
-                title="Completed Projects",
-                axis=alt.Axis(
-                    tickMinStep=1,
-                    labelColor=axis_label_color,
-                    titleColor=axis_title_color,
-                    gridColor=grid_color,
-                ),
-            ),
+            x=alt.X("Skill:N", sort=None, title="Technical Stack", axis=alt.Axis(labelAngle=-25, labelLimit=180)),
+            y=alt.Y("Projects Built:Q", title="Completed Projects", axis=alt.Axis(tickMinStep=1)),
             tooltip=["Skill", "Category", "Projects Built", "Course Units"],
         )
         .properties(height=300)

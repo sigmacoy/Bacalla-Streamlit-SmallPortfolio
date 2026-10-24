@@ -10,7 +10,7 @@ This application serves as an interactive showcase of academic coursework, found
 
 ### Core Sections
 - **About & Identity:** Student profile, educational standing, program, section, and contact links.
-- **Autobiography & Journey:** Academic philosophy, hands-on laboratory experiences using CodeChum, and comprehensive semester-by-semester coursework from First Year to Third Year.
+- **Autobiography & Journey:** Academic philosophy, hands-on laboratory experiences using CodeChum, comprehensive semester-by-semester coursework from First Year to Third Year, chronological milestones timeline, 14 verified technical & academic certificates, and side developer utilities.
 - **Skills & Technical Coursework:** Concrete metric visualizations mapping completed projects and coursework units per technology stack (static Altair bar chart with fixed zoom).
 - **Projects Showcase:** Interactive portfolio of 10 software projects spanning client web apps, automata theory verification, browser extensions, mobile engineering, enterprise inventory, and native desktop systems with direct GitHub repository buttons and keyword/role filtering.
 - **Connect & Feedback:** Direct contact channels (Gmail, LinkedIn, CIT-U institutional email) and an interactive session-state inquiry form.
