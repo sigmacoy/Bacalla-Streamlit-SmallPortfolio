@@ -1288,7 +1288,7 @@ with skill_col2:
         column_config={
             "Skill": st.column_config.TextColumn("Skill", width=220),
             "Category": st.column_config.TextColumn("Category", width=180),
-            "Projects": st.column_config.NumberColumn("Projects", width=95, format="%d"),
+            "Projects": st.column_config.NumberColumn("Projects", width=95, format="%d", alignment="left"),
         },
     )
     st.write(f"Displaying **{len(filtered_skills)}** of **{len(df_skills)}** technical domains.")
