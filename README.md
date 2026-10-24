@@ -12,7 +12,7 @@ This application serves as an interactive showcase of academic coursework, found
 - **About & Identity:** Student profile, educational standing, program, section, and contact links.
 - **Autobiography & Journey:** Academic philosophy, hands-on laboratory experiences using CodeChum, and comprehensive semester-by-semester coursework from First Year to Third Year.
 - **Skills & Technical Coursework:** Concrete metric visualizations mapping completed projects and coursework units per technology stack (static Altair bar chart with fixed zoom).
-- **Projects Showcase:** Interactive portfolio of 9 software projects spanning automata theory verification, browser extensions, mobile engineering, enterprise inventory, and native desktop systems with direct GitHub repository buttons and keyword/role filtering.
+- **Projects Showcase:** Interactive portfolio of 10 software projects spanning client web apps, automata theory verification, browser extensions, mobile engineering, enterprise inventory, and native desktop systems with direct GitHub repository buttons and keyword/role filtering.
 - **Connect & Feedback:** Direct contact channels (Gmail, LinkedIn, CIT-U institutional email) and an interactive session-state inquiry form.
 
 ---
@@ -46,6 +46,9 @@ This application serves as an interactive showcase of academic coursework, found
 9. **WattWise**
    - Software-based smart energy monitoring system utilizing a simulated smart-breaker environment, created for ES038 Technopreneurship.
    - *Tools:* Python, JavaScript, Software Simulation.
+10. **Pretty Nails by Atasha**
+   - Ongoing client landing and booking website with automated Messenger notifications for a nail salon business owner.
+   - *Tools:* Antigravity, TypeScript, JavaScript, Vercel Serverless, Google Identity Services API, Google Token Verification API.
 
 ### Additional Side Projects & Utilities (Under "More" Tab)
 - **Anki Last Ease Highlight Add-on:** Highlights the answer button pressed last time during card reviews.

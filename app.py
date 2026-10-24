@@ -145,7 +145,7 @@ projects_data = [
         "id": "p4",
         "title": "Clinic Inventory System",
         "category": "Enterprise & Web",
-        "role": "Developer (Two-Man Developer)",
+        "role": "Developer (2-Man Team)",
         "role_category": "Team Developer",
         "tools": ["PHP", "CSS", "MySQL", "XAMPP", "FEFO Logic"],
         "description": "A clinic pharmacy management system with FEFO (First-Expired, First-Out) batch deduction, supplier tracking, patient registration, low-stock alerts, expiry and discard controls, and full audit-logged dispensation traceability.",
@@ -219,6 +219,19 @@ projects_data = [
         "access_note": "Technopreneurship Startup Capstone (10-Person Team)",
         "highlights": "Simulated circuit telemetry, smart-breaker event dispatching, software-only hardware emulation, and cross-functional team coordination.",
     },
+    {
+        "id": "p10",
+        "title": "Pretty Nails by Atasha",
+        "category": "Client Web & Booking",
+        "role": "Lead Developer, Solo Developer",
+        "role_category": "Solo Developer",
+        "tools": ["Antigravity", "TypeScript", "JavaScript", "Vercel Serverless", "Google Identity Services API", "Google Token Verification API"],
+        "description": "An ongoing client website with optimized mobile view for a Nail Salon Business Owner. Functions as a booking website landing page featuring appointment scheduling and automated direct messaging to the owner's Messenger account for real-time customer management.",
+        "outcome": "Production-ready automated salon appointment booking system streamlining customer reservations and direct notification delivery to the business owner.",
+        "link": "https://github.com/sigmacoy/pretty-nails-by-atasha",
+        "access_note": "Active Client Project / Open Source Repository",
+        "highlights": "Mobile-first responsive design, Vercel Serverless booking endpoints, Google Identity verification, and automated Messenger notification dispatching.",
+    },
 ]
 
 # ---------------------------------------------------------
@@ -285,6 +298,7 @@ Projects:
 7. +inHealth - Java Swing desktop health and physical activity tracking suite
 8. CodeChum++ - Standalone offline Java Swing code judge environment
 9. WattWise - Software-based energy monitoring system with simulated smart-breaker environment
+10. Pretty Nails by Atasha - Client salon booking landing page with automated Messenger notifications
 """
     st.download_button(
         label="Download Summary (.md)",
@@ -323,7 +337,7 @@ st.write(
 
 m_col1, m_col2, m_col3, m_col4 = st.columns(4)
 with m_col1:
-    st.metric(label="Featured Projects", value="9", delta="Documented")
+    st.metric(label="Featured Projects", value="10", delta="Documented")
 with m_col2:
     st.metric(label="Year Level", value="3rd Year", delta="Regular Student")
 with m_col3:
@@ -474,11 +488,13 @@ with tab_edu:
               Advanced software engineering in Java: strict OOP design patterns, multithreading, and SQL database management using JDBC with XAMPP.  
               *Capstone Project:* **+inHealth** — desktop health and meal tracking suite with active exercise reminders.
             - **CSIT238 Human Computer Interaction**  
-              User-centered design principles, mobile UI/UX ergonomics, usability heuristics, cognitive walkthroughs, wireframing, and interactive prototyping.
+              User-centered design principles, mobile UI/UX ergonomics, usability heuristics, cognitive walkthroughs, wireframing, and interactive prototyping.  
+              *Capstone Project:* <a href="https://www.figma.com/make/awZvpGYhb83ANgNiOuVZ8g/Wireframe?t=CszizxSgOFKzvbJ9-20&fullscreen=1&preview-route=%2Flogin" target="_blank" style="color: #2563EB; text-decoration: underline; font-weight: 600;">WildMarket</a> — a mobile app task, job, and selling marketplace within a community. Interactive prototype built in Figma Make.
             - **CSIT284 Platform-based Development 3 (Mobile)**  
               Native Android application engineering in Kotlin using Android Studio: activity lifecycles, background services, notifications, and app widgets.  
               *Capstone Project:* **MyRoutine** — habit tracker with interactive home-screen widgets and recurring reminders.
-            """
+            """,
+            unsafe_allow_html=True,
         )
 
     with st.expander("Third Year - First Semester (Current)", expanded=True):
@@ -488,17 +504,20 @@ with tab_edu:
               Formal computation models: Deterministic Finite Automata (DFA), Non-Deterministic Finite Automata (NFA), Regular Expressions, Regular Languages, Context-Free Grammars (CFG), Regular Grammars, Pushdown Automata (PDA), and Turing Machines.  
               *Independent Verification Tool:* **I Will Pass Automata Theory** — closed private verification platform independent from AI.
             - **CS345 Intelligent Systems 1**  
-              Foundations of computational intelligence: fuzzy logic, fuzzy inference systems, linguistic variables, and Artificial Neural Networks (ANN).
+              Foundations of computational intelligence: fuzzy logic, fuzzy inference systems, linguistic variables, and Artificial Neural Networks (ANN).  
+              *Coursework Repository:* This <a href="https://github.com/sigmacoy/CS345-IS1" target="_blank" style="color: #2563EB; text-decoration: underline; font-weight: 600;">repository</a> is all my work/assignment/required output for this course.
             - **CSIT212 Quantitative Methods**  
               Applied statistics and probability modeling: Normal distribution, exponential distribution, Poisson distribution, Bayes' theorem, permutations, combinations, Probability Density Functions (PDF), Cumulative Distribution Functions (CDF), and statistical hypothesis analysis.
             - **CSIT321 Applications Development and Emerging Technologies**  
-              Modern scalable backend architectures, microservices, cloud deployments, and emerging web technologies.
+              Modern scalable backend architectures, microservices, cloud deployments, and emerging web technologies.  
+              *Capstone Project:* <a href="https://github.com/sigmacoy/pretty-nails-by-atasha" target="_blank" style="color: #2563EB; text-decoration: underline; font-weight: 600;">Pretty Nails by Atasha</a> — ongoing client appointment booking landing page with automated Messenger notifications and mobile-optimized scheduling for a nail salon business owner.
             - **CSIT327 Information Management 2**  
               Advanced relational database administration: complex SQL querying, indexing, stored procedures, transactions, and hands-on application development using PostgreSQL and MySQL.
             - **ES038 Technopreneurship**  
               Collaborative technology entrepreneurship and startup engineering in a 10-person team:  
               *Capstone Project:* **WattWise** — a software-based energy monitoring system utilizing a simulated smart-breaker environment, eliminating the need for physical hardware.
-            """
+            """,
+            unsafe_allow_html=True,
         )
 
 with tab_interest:
@@ -521,15 +540,34 @@ with tab_interest:
 
 with tab_milestones:
     st.subheader("Timeline & Project Evolution")
+    st.write("Chronological development timeline across academic capstones, browser utilities, developer tools, and client platforms based on repository starting dates:")
     milestones_data = [
-        {"Year": "2023 Q1", "Milestone": "Desktop Collaboration (+inHealth)", "Detail": "Contributed to 5-man team; developed JavaFX UI behavior and nutritional API integration."},
-        {"Year": "2023 Q3", "Milestone": "Enterprise Pharmacy Management", "Detail": "Co-engineered PHP/MySQL clinic system featuring automated FEFO batch deduction and audit logs."},
-        {"Year": "2023 Q4", "Milestone": "Offline Code Judging Environment", "Detail": "Developed CodeChum++ front-end and test-runner interface in Java Swing for offline lab evaluations."},
-        {"Year": "2024 Q1", "Milestone": "Mobile & Native Desktop Development", "Detail": "Built MyRoutine Kotlin habit tracker with widgets and PomodoroTimer SwiftUI macOS menu bar app."},
-        {"Year": "2024 Q3", "Milestone": "Productivity Browser Extensions", "Detail": "Released Labelscript (Unicode superscript utility) and YouTube Audio Downloader (yt-dlp + Flask)."},
-        {"Year": "2024 Q4", "Milestone": "Automata Verification System", "Detail": "Engineered 'I Will Pass Automata Theory' using TypeScript, Google Auth APIs, and Vercel Serverless."},
+        {"Date": "Nov 20, 2025", "Project": "CodeChum++", "Category": "Academic Capstone (OOP 1)", "Detail": "Offline code judging environment in Java Swing with a LeetCode-style interface."},
+        {"Date": "Dec 18, 2025", "Project": "PomodoroTimer", "Category": "macOS Utility", "Detail": "Minimalist menu bar Pomodoro timer built with SwiftUI for macOS with zero dock footprint."},
+        {"Date": "Mar 29, 2026", "Project": "YouTube Audio Downloader", "Category": "Browser Extension & Python", "Detail": "Browser extension and Flask backend extracting YouTube audio to MP3 using yt-dlp and ffmpeg."},
+        {"Date": "Apr 10, 2026", "Project": "+inHealth", "Category": "Academic Capstone (OOP 2)", "Detail": "Health and meal tracking desktop app in Java Swing using OOP design patterns, multithreading, and JDBC with XAMPP MySQL."},
+        {"Date": "Apr 12, 2026", "Project": "TreeViz-CLI", "Category": "Terminal Utility", "Detail": "Command-line interactive visualization tool for exploring tree data structures from scratch."},
+        {"Date": "Apr 24, 2026", "Project": "MyRoutine", "Category": "Mobile App (Kotlin)", "Detail": "Android habit tracker with interactive home-screen widgets and recurring push notifications."},
+        {"Date": "Apr 24, 2026", "Project": "Clinic Inventory System", "Category": "Full-Stack Web (IM1)", "Detail": "Clinic pharmacy system featuring automated FEFO batch deduction, supplier tracking, and audit logging."},
+        {"Date": "May 19, 2026", "Project": "Anki Last Ease Highlight Add-on", "Category": "Productivity Add-on", "Detail": "Anki add-on highlighting the last-selected answer button during card reviews."},
+        {"Date": "May 30, 2026", "Project": "Messenger Chat Deletor", "Category": "Browser Extension", "Detail": "Chrome extension for bulk-deleting chat messages and archiving stories with automatic safety skipping."},
+        {"Date": "Sep 19, 2026", "Project": "FuzzyLogic-Vehicle-Refuel-Recommender", "Category": "Intelligent Systems (CS345)", "Detail": "Python Mamdani fuzzy logic inference system evaluating vehicle fuel levels and distance to next gas station."},
+        {"Date": "Oct 4, 2026", "Project": "SharePoint Video Skip Arrow", "Category": "Browser Extension", "Detail": "Extension mapping arrow keys to SharePoint's native 10-second skip buttons and spacebar play/pause."},
+        {"Date": "Oct 9, 2026", "Project": "Labelscript", "Category": "Browser Extension", "Detail": "Productivity browser extension converting selected text to Unicode superscripts via right-click context menu."},
+        {"Date": "Oct 11, 2026", "Project": "I Will Pass Automata Theory", "Category": "Theory & Serverless", "Detail": "Deterministic mathematical verification tool for CS313 Automata Theory, independent from AI."},
+        {"Date": "Oct 23, 2026", "Project": "Pretty Nails by Atasha", "Category": "Client Web & Booking", "Detail": "Client booking landing page for nail salon business with automated Messenger notifications."},
     ]
-    st.dataframe(pd.DataFrame(milestones_data), use_container_width=True, hide_index=True)
+    st.dataframe(
+        pd.DataFrame(milestones_data),
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "Date": st.column_config.TextColumn("Date", width=125),
+            "Project": st.column_config.TextColumn("Project", width=220),
+            "Category": st.column_config.TextColumn("Category", width=190),
+            "Detail": st.column_config.TextColumn("Detail"),
+        },
+    )
 
 with tab_more:
     st.subheader("Side Projects & Developer Tools")
@@ -653,7 +691,7 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # ---------------------------------------------------------
 st.markdown('<a id="projects-showcase"></a>', unsafe_allow_html=True)
 st.header("Projects Showcase")
-st.write("Explore all 9 software projects across theory, browser extensions, mobile, enterprise, and desktop applications.")
+st.write("Explore all 10 software projects across client web apps, theory, browser extensions, mobile, enterprise, and desktop applications.")
 
 f_col1, f_col2, f_col3 = st.columns([1.5, 1.2, 1], gap="small")
 
@@ -695,7 +733,7 @@ for p in projects_data:
     matches_role = (
         role_filter == "All Roles"
         or (role_filter == "Solo Developer" and "Solo" in p["role"])
-        or (role_filter == "Team Developer" and ("Team" in p["role"] or "Two-Man" in p["role"] or "5-Man" in p["role"]))
+        or (role_filter == "Team Developer" and ("Team" in p["role"] or "2-Man" in p["role"] or "5-Man" in p["role"]))
     )
     
     if matches_search and matches_tools and matches_role:
@@ -879,7 +917,7 @@ with contact_col2:
         with row1_col1:
             sender_name = st.text_input("Your Name", placeholder="e.g. Jun Albert S. Pardillo")
         with row1_col2:
-            sender_email = st.text_input("Your Email", placeholder="e.g. junpardillo@example.com")
+            sender_email = st.text_input("Your Email", placeholder="e.g. junpardillo@gmail.com")
         
         row2_col1, row2_col2 = st.columns([1.1, 1])
         with row2_col1:
