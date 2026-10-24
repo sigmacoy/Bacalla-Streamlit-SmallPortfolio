@@ -1237,13 +1237,13 @@ with tab_more:
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# Skills Section: Concrete Numerical Metrics (Projects & Units)
+# Skills Section: Concrete Numerical Metrics (Projects)
 # ---------------------------------------------------------
 st.markdown('<a id="skills-technical-coursework"></a>', unsafe_allow_html=True)
 st.header("Skills & Technical Coursework")
 st.write(
     """
-    Overview of technical stacks mapped against practical completed projects and academic coursework units.
+    Overview of technical stacks mapped against practical completed projects and capstone implementations.
     Use the slider below to filter stacks by minimum completed project implementations.
     """
 )
@@ -1269,7 +1269,7 @@ with skill_col1:
         .encode(
             x=alt.X("Skill:N", sort=None, title="Technical Stack", axis=alt.Axis(labelAngle=-25, labelLimit=180)),
             y=alt.Y("Projects Built:Q", title="Completed Projects", axis=alt.Axis(tickMinStep=1)),
-            tooltip=["Skill", "Category", "Projects Built", "Course Units"],
+            tooltip=["Skill", "Category", "Projects Built"],
         )
         .properties(height=300)
     )
@@ -1278,18 +1278,17 @@ with skill_col1:
 
 with skill_col2:
     st.subheader("Stack Metrics Breakdown")
-    table_df = filtered_skills[["Skill", "Category", "Projects Built", "Course Units"]].rename(
-        columns={"Projects Built": "Projects", "Course Units": "Course Units"}
+    table_df = filtered_skills[["Skill", "Category", "Projects Built"]].rename(
+        columns={"Projects Built": "Projects"}
     )
     st.dataframe(
         table_df,
         use_container_width=True,
         hide_index=True,
         column_config={
-            "Skill": st.column_config.TextColumn("Skill", width=190),
-            "Category": st.column_config.TextColumn("Category", width=160),
-            "Projects": st.column_config.NumberColumn("Projects", width=85, format="%d"),
-            "Course Units": st.column_config.NumberColumn("Course Units", width=105, format="%d"),
+            "Skill": st.column_config.TextColumn("Skill", width=220),
+            "Category": st.column_config.TextColumn("Category", width=180),
+            "Projects": st.column_config.NumberColumn("Projects", width=95, format="%d"),
         },
     )
     st.write(f"Displaying **{len(filtered_skills)}** of **{len(df_skills)}** technical domains.")
