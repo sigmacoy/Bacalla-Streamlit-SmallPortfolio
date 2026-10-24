@@ -133,6 +133,24 @@ html, body, [class*="css"] {{
     flex-direction: column !important;
     align-items: center !important;
 }}
+
+/* Hide 'Press Enter to submit form' and 'Press Cmd + Enter to submit form' instructions */
+[data-testid="InputInstructions"],
+.stInputInstructions,
+div[data-testid="InputInstructions"],
+span[data-testid="InputInstructions"],
+[data-testid="stTextInput"] [data-testid="InputInstructions"],
+[data-testid="stTextArea"] [data-testid="InputInstructions"],
+[data-testid="stForm"] [data-testid="InputInstructions"] {{
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+}}
 """ + ("""
 /* Dark Mode Comprehensive Overrides */
 html, body, .stApp, [data-testid="stAppViewContainer"] {
