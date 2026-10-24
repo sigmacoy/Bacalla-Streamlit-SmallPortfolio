@@ -889,7 +889,7 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # ---------------------------------------------------------
 st.markdown('<a id="autobiography"></a>', unsafe_allow_html=True)
 st.header("Autobiography")
-st.write("Background, academic education, focus areas, and milestones.")
+st.write("Background, academic education, focus areas, milestones, certificates, and more.")
 
 tab_bg, tab_edu, tab_interest, tab_milestones, tab_certs, tab_more = st.tabs([
     "Background & Philosophy",
