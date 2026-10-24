@@ -358,19 +358,53 @@ input::placeholder, textarea::placeholder {
     color: #FAFAFA !important;
 }
 
-/* Form Controls & Segmented Control */
+/* Form Controls & Segmented Control (Rating in Send Feedback Form) */
+[data-testid="stButtonGroup"] button,
 [data-testid="stSegmentedControl"] button,
-button[data-variant="segmented_control"] {
+button[data-variant="segmented_control"],
+button[kind="segmented_control"] {
     background-color: #18181B !important;
     color: #E4E4E7 !important;
     border-color: #3F3F46 !important;
 }
+
+[data-testid="stButtonGroup"] button *,
+button[data-variant="segmented_control"] * {
+    color: #E4E4E7 !important;
+    -webkit-text-fill-color: #E4E4E7 !important;
+}
+
+/* Selected Button in Segmented Control (e.g. Rating button 5) in Dark Mode: pure black text */
+[data-testid="stButtonGroup"] button[data-selected],
+[data-testid="stButtonGroup"] button[aria-checked="true"],
+[data-testid="stButtonGroup"] button[aria-pressed="true"],
 [data-testid="stSegmentedControl"] button[data-selected],
-button[data-variant="segmented_control"][data-selected] {
+button[data-variant="segmented_control"][data-selected],
+button[kind="segmented_controlActive"] {
     background-color: #FAFAFA !important;
-    color: #09090B !important;
+    color: #000000 !important;
     border-color: #FAFAFA !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+}
+
+[data-testid="stButtonGroup"] button[data-selected] *,
+[data-testid="stButtonGroup"] button[data-selected] p,
+[data-testid="stButtonGroup"] button[data-selected] div,
+[data-testid="stButtonGroup"] button[data-selected] span,
+[data-testid="stButtonGroup"] button[aria-checked="true"] *,
+[data-testid="stButtonGroup"] button[aria-pressed="true"] *,
+[data-testid="stSegmentedControl"] button[data-selected] *,
+button[data-variant="segmented_control"][data-selected] *,
+button[data-variant="segmented_control"][data-selected] p,
+button[data-variant="segmented_control"][data-selected] div,
+button[data-variant="segmented_control"][data-selected] span,
+button[kind="segmented_controlActive"] *,
+button[kind="segmented_controlActive"] p,
+button[kind="segmented_controlActive"] div,
+button[kind="segmented_controlActive"] span {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-weight: 700 !important;
 }
 
 /* Submit Message Button in Send Feedback Form */
