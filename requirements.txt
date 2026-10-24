@@ -1,3 +1,4 @@
-cd {project location}
-source .venv/bin/activate
-streamlit run streamlit_app.py
+streamlit
+pandas
+altair
+vega_datasets
