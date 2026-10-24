@@ -1062,20 +1062,21 @@ with tab_milestones:
     st.subheader("Timeline & Project Evolution")
     st.write("Chronological development timeline across academic capstones, browser utilities, developer tools, and client platforms based on repository starting dates:")
     milestones_data = [
-        {"Date": "Nov 20, 2025", "Project": "CodeChum++", "Category": "Academic Capstone (OOP 1)", "Detail": "Offline code judging environment in Java Swing with a LeetCode-style interface."},
-        {"Date": "Dec 18, 2025", "Project": "PomodoroTimer", "Category": "macOS Utility", "Detail": "Minimalist menu bar Pomodoro timer built with SwiftUI for macOS with zero dock footprint."},
-        {"Date": "Mar 29, 2026", "Project": "YouTube Audio Downloader", "Category": "Browser Extension & Python", "Detail": "Browser extension and Flask backend extracting YouTube audio to MP3 using yt-dlp and ffmpeg."},
-        {"Date": "Apr 10, 2026", "Project": "+inHealth", "Category": "Academic Capstone (OOP 2)", "Detail": "Health and meal tracking desktop app in Java Swing using OOP design patterns, multithreading, and JDBC with XAMPP MySQL."},
-        {"Date": "Apr 12, 2026", "Project": "TreeViz-CLI", "Category": "Terminal Utility", "Detail": "Command-line interactive visualization tool for exploring tree data structures from scratch."},
-        {"Date": "Apr 24, 2026", "Project": "MyRoutine", "Category": "Mobile App (Kotlin)", "Detail": "Android habit tracker with interactive home-screen widgets and recurring push notifications."},
-        {"Date": "Apr 24, 2026", "Project": "Clinic Inventory System", "Category": "Full-Stack Web (IM1)", "Detail": "Clinic pharmacy system featuring automated FEFO batch deduction, supplier tracking, and audit logging."},
-        {"Date": "May 19, 2026", "Project": "Anki Last Ease Highlight Add-on", "Category": "Productivity Add-on", "Detail": "Anki add-on highlighting the last-selected answer button during card reviews."},
-        {"Date": "May 30, 2026", "Project": "Messenger Chat Deletor", "Category": "Browser Extension", "Detail": "Chrome extension for bulk-deleting chat messages and archiving stories with automatic safety skipping."},
-        {"Date": "Sep 19, 2026", "Project": "FuzzyLogic-Vehicle-Refuel-Recommender", "Category": "Intelligent Systems (CS345)", "Detail": "Python Mamdani fuzzy logic inference system evaluating vehicle fuel levels and distance to next gas station."},
-        {"Date": "Oct 4, 2026", "Project": "SharePoint Video Skip Arrow", "Category": "Browser Extension", "Detail": "Extension mapping arrow keys to SharePoint's native 10-second skip buttons and spacebar play/pause."},
-        {"Date": "Oct 9, 2026", "Project": "Labelscript", "Category": "Browser Extension", "Detail": "Productivity browser extension converting selected text to Unicode superscripts via right-click context menu."},
-        {"Date": "Oct 11, 2026", "Project": "I Will Pass Automata Theory", "Category": "Theory & Serverless", "Detail": "Deterministic mathematical verification tool for CS313 Automata Theory, independent from AI."},
-        {"Date": "Oct 23, 2026", "Project": "Pretty Nails by Atasha", "Category": "Client Web & Booking", "Detail": "Client booking landing page for nail salon business with automated Messenger notifications."},
+        {"Date": "Nov 20, 2025", "Project": "CodeChum++", "Category": "Academic Capstone (OOP 1)", "Detail": "Offline code judging environment in Java Swing with a LeetCode-style interface.", "Link": "https://github.com/sigmacoy/CodeChum-plus-plus"},
+        {"Date": "Dec 18, 2025", "Project": "PomodoroTimer", "Category": "macOS Utility", "Detail": "Minimalist menu bar Pomodoro timer built with SwiftUI for macOS with zero dock footprint.", "Link": "https://github.com/sigmacoy/PomodoroTimer"},
+        {"Date": "Mar 29, 2026", "Project": "YouTube Audio Downloader", "Category": "Browser Extension & Python", "Detail": "Browser extension and Flask backend extracting YouTube audio to MP3 using yt-dlp and ffmpeg.", "Link": "https://github.com/sigmacoy/yt-aud-dl"},
+        {"Date": "Apr 8, 2026", "Project": "WildMarket", "Category": "Academic Capstone (HCI)", "Detail": "Mobile app task, job, and selling marketplace within a community. Interactive prototype built in Figma Make.", "Link": "https://www.figma.com/make/awZvpGYhb83ANgNiOuVZ8g/Wireframe?t=CszizxSgOFKzvbJ9-20&fullscreen=1&preview-route=%2Flogin"},
+        {"Date": "Apr 10, 2026", "Project": "+inHealth", "Category": "Academic Capstone (OOP 2)", "Detail": "Health and meal tracking desktop app in Java Swing using OOP design patterns, multithreading, and JDBC with XAMPP MySQL.", "Link": "https://github.com/sigmacoy/plus-inHealth"},
+        {"Date": "Apr 12, 2026", "Project": "TreeViz-CLI", "Category": "Terminal Utility", "Detail": "Command-line interactive visualization tool for exploring tree data structures from scratch.", "Link": "https://github.com/sigmacoy/Terminal-Tree-Viz"},
+        {"Date": "Apr 24, 2026", "Project": "MyRoutine", "Category": "Mobile App (Kotlin)", "Detail": "Android habit tracker with interactive home-screen widgets and recurring push notifications.", "Link": "https://github.com/sigmacoy/PBD3-Final-Capstone"},
+        {"Date": "Apr 24, 2026", "Project": "Clinic Inventory System", "Category": "Full-Stack Web (IM1)", "Detail": "Clinic pharmacy system featuring automated FEFO batch deduction, supplier tracking, and audit logging.", "Link": "https://github.com/sigmacoy/IM1-Final-Capstone"},
+        {"Date": "May 19, 2026", "Project": "Anki Last Ease Highlight Add-on", "Category": "Productivity Add-on", "Detail": "Anki add-on highlighting the last-selected answer button during card reviews.", "Link": "https://github.com/sigmacoy/anki-last-ease-highlight-addon"},
+        {"Date": "May 30, 2026", "Project": "Messenger Chat Deletor", "Category": "Browser Extension", "Detail": "Chrome extension for bulk-deleting chat messages and archiving stories with automatic safety skipping.", "Link": "https://github.com/sigmacoy/messenger-peace-of-mind"},
+        {"Date": "Sep 19, 2026", "Project": "FuzzyLogic-Vehicle-Refuel-Recommender", "Category": "Intelligent Systems (CS345)", "Detail": "Python Mamdani fuzzy logic inference system evaluating vehicle fuel levels and distance to next gas station.", "Link": "https://github.com/sigmacoy/FuzzyLogic-Vehicle-Refuel-Recommender"},
+        {"Date": "Oct 4, 2026", "Project": "SharePoint Video Skip Arrow", "Category": "Browser Extension", "Detail": "Extension mapping arrow keys to SharePoint's native 10-second skip buttons and spacebar play/pause.", "Link": "https://github.com/sigmacoy/sharepoint-video-skip-arrow"},
+        {"Date": "Oct 9, 2026", "Project": "Labelscript", "Category": "Browser Extension", "Detail": "Productivity browser extension converting selected text to Unicode superscripts via right-click context menu.", "Link": "https://github.com/sigmacoy/labelscript"},
+        {"Date": "Oct 11, 2026", "Project": "I Will Pass Automata Theory", "Category": "Theory & Serverless", "Detail": "Deterministic mathematical verification tool for CS313 Automata Theory, independent from AI.", "Link": "https://github.com/sigmacoy/i-will-pass-automata-theory"},
+        {"Date": "Oct 23, 2026", "Project": "Pretty Nails by Atasha", "Category": "Client Web & Booking", "Detail": "Client booking landing page for nail salon business with automated Messenger notifications.", "Link": "https://github.com/sigmacoy/pretty-nails-by-atasha"},
     ]
     st.dataframe(
         pd.DataFrame(milestones_data),
@@ -1083,9 +1084,10 @@ with tab_milestones:
         hide_index=True,
         column_config={
             "Date": st.column_config.TextColumn("Date", width=125),
-            "Project": st.column_config.TextColumn("Project", width=220),
+            "Project": st.column_config.TextColumn("Project", width=200),
             "Category": st.column_config.TextColumn("Category", width=190),
             "Detail": st.column_config.TextColumn("Detail"),
+            "Link": st.column_config.LinkColumn("Link", display_text="Open", width=90),
         },
     )
 
