@@ -238,7 +238,7 @@ projects_data = [
 # Sidebar Component: Profile & Explicit Fast Navigation
 # ---------------------------------------------------------
 with st.sidebar:
-    st.image("assets/avatar.svg", use_container_width=True, caption="")
+    st.image("assets/my-pic2.png", use_container_width=True, caption="")
     
     st.markdown("### Student Profile")
     st.markdown(
